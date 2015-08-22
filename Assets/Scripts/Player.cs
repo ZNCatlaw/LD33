@@ -49,10 +49,15 @@ public class Player : MonoBehaviour
                 new Vector3(lookDirection.x, lookDirection.y, -1);
         }
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetAxis("LeftFire") > 0.1f)
         {
             ProjectileManager projectileManager = m_Game.GetComponent<ProjectileManager>();
             projectileManager.AddLaser(m_Eyes[0].transform.position, new Vector3(0, -1, 0));
+        }
+        if (Input.GetAxis("RightFire") > 0.1f)
+        {
+            ProjectileManager projectileManager = m_Game.GetComponent<ProjectileManager>();
+            projectileManager.AddLaser(m_Eyes[1].transform.position, new Vector3(0, -1, 0));
         }
     }
 }
