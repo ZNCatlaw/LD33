@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShipManager : MonoBehaviour {
-
-	public GameObject[] shipTypes;
+public class Beast : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -12,10 +10,11 @@ public class ShipManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+	
 	}
 
-	void Spawn () {
-
+	void OnTriggerEnter2D (Collider2D other) {
+		GoodShip ship = other.GetComponent<GoodShip> ();
+		ship.Explode ();
 	}
 }
