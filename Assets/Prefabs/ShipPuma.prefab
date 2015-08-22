@@ -13,6 +13,7 @@ GameObject:
   - 50: {fileID: 5068852}
   - 114: {fileID: 11440424}
   - 58: {fileID: 5896426}
+  - 114: {fileID: 11440010}
   m_Layer: 0
   m_Name: ShipPuma
   m_TagString: Untagged
@@ -92,6 +93,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .600000024
+--- !u!114 &11440010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815701f25a55845138984bdc952e2d45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_shotPeriod: .5
+  m_shotDelay: 0
+  m_projectileManager: {fileID: 0}
 --- !u!114 &11440424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 148634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f6ac34b578b4d99aa797a67d3feff7, type: 3}
+  m_Script: {fileID: 11500000, guid: ca0037ff0cb5040a6864c0c5912a34d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &100100000
@@ -129,6 +144,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Radius
       value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shotDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shotPeriod
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_shotPeriod
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

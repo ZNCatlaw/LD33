@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f35e767725cda44be359e89254a072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LaserPrefab: {fileID: 189106, guid: d74accdad839d3a43a9f495859d934d8, type: 2}
 --- !u!114 &1051315372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,8 +293,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_shipTypes:
   - {fileID: 148634, guid: 46aa0c6b5dd57af4c8b5ba0bfc38b201, type: 2}
-  spawnTime: .5
-  spawnDelay: 0
+  m_spawnTime: .5
+  m_spawnDelay: 0
 --- !u!1 &1325147872
 GameObject:
   m_ObjectHideFlags: 0
