@@ -204,7 +204,7 @@ Transform:
   m_Children:
   - {fileID: 198389655}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1325147872
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,11 +212,11 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 224: {fileID: 1325147878}
-  - 92: {fileID: 1325147875}
+  - 4: {fileID: 1325147878}
   - 124: {fileID: 1325147874}
   - 81: {fileID: 1325147873}
   - 20: {fileID: 1325147876}
+  - 92: {fileID: 1325147875}
   - 114: {fileID: 1325147877}
   m_Layer: 0
   m_Name: Main Camera
@@ -255,18 +255,18 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: .288953513
     y: 0
-    width: 1
+    width: .422093004
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -287,13 +287,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1325147872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1254083943, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: e68c45c9244d33d48a04b11654f8ac85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AspectMode: 2
-  m_AspectRatio: 1
---- !u!224 &1325147878
-RectTransform:
+  _wantedAspectRatio: .75
+  landscapeModeOnly: 0
+--- !u!4 &1325147878
+Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -303,9 +303,4 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 4.5, y: 8}
-  m_SizeDelta: {x: 0, y: 16}
-  m_Pivot: {x: .5, y: .5}
+  m_RootOrder: 0
