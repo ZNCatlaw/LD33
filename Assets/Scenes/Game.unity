@@ -87,6 +87,47 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &198389654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 198389655}
+  - 114: {fileID: 198389656}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &198389655
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 198389654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051315374}
+  m_RootOrder: 0
+--- !u!114 &198389656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 198389654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d5cb3e114524872888bc9e85466360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_shipTypes:
+  - {fileID: 148634, guid: 46aa0c6b5dd57af4c8b5ba0bfc38b201, type: 2}
 --- !u!1 &1051315369
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b507d9ced2ce5764eb2f35034fd84a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipTypes: []
 --- !u!114 &1051315371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +201,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 198389655}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &1325147872
