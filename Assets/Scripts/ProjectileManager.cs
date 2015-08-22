@@ -12,22 +12,30 @@ public class ProjectileManager : MonoBehaviour
     {
         m_Projectiles = new GameObject();
         m_Projectiles.transform.parent = this.transform;
+        m_Projectiles.name = "Projectiles";
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in m_Projectiles.transform)
         {
-            float speed = 10f * Time.deltaTime;
-            child.transform.Translate(new Vector3(0, speed, 0));
+            Projectile projectile = child.GetComponent<Projectile>();
+            Vector3 delta = projectile.m_Velocity * Time.deltaTime;
+            child.transform.Translate(delta, Space.World);
         }
     }
 
     public void AddLaser( Vector3 position, Vector3 direction )
     {
-        GameObject laser = Instantiate(m_LaserPrefab, position, transform.rotation) as GameObject;
+        Quaternion rot = new Quaternion();
+        rot.SetLookRotation(direction, new Vector3( 0, 0, 1));
+        GameObject laser = Instantiate(m_LaserPrefab, position, rot) as GameObject;
         laser.transform.parent = m_Projectiles.transform;
+
+        Projectile projectile = laser.GetComponent<Projectile>();
+        projectile.m_Velocity = direction * 10.0f;
+
         DestroyObject(laser, 2.0f);
     }
 }
