@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StupidLinearShip : MonoBehaviour {
+public class LinearFlightPattern : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -12,17 +12,19 @@ public class StupidLinearShip : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		//create rotation
-		Vector2 target = Camera.main.ViewportToWorldPoint(new Vector2(0, -1));
+		Vector2 target = this.GetTarget ();
 		Vector2 position = transform.position;
 
-		target.x = position.x; // ensure the ship is pointing straight ahead
+		// ensure the ship is pointing straight ahead
+		target.x = position.x; 
 		Quaternion wantedRotation = Quaternion.LookRotation(target - position);
 
 		//then rotate
 		transform.rotation = Quaternion.Lerp(transform.rotation, wantedRotation, Time.time * 1);
 	}
 
-	void OnCollisionEnter2D (Collision2D other) {
-		Debug.Log("Collision detected with trigger object ");
+	// returns a point directly ahead of the ship
+	Vector2 GetTarget () {
+		return Camera.main.ViewportToWorldPoint(new Vector2(0, -1));
 	}
 }
