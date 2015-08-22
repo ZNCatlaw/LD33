@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
         {
             ProjectileManager projectileManager = m_Game.GetComponent<ProjectileManager>();
             projectileManager.AddLaser(m_Eyes[0].transform.position, new Vector3(0, -1, 0));
+
         }
     }
 }
