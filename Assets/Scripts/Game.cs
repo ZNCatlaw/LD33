@@ -13,8 +13,6 @@ public class Game : MonoBehaviour
         m_playerManager = GetComponent<PlayerManager>();
         m_projectileManager = GetComponent<ProjectileManager>();
         m_shipManager = GetComponent<ShipManager>();
-
-
 	}
 	
 	// Update is called once per frame
