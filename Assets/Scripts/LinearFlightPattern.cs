@@ -3,22 +3,20 @@ using System.Collections;
 
 public class LinearFlightPattern : MonoBehaviour {
 
+	public float m_speed;
 
 	// Use this for initialization
 	void Start () {
-		Rigidbody2D body = this.GetComponent<Rigidbody2D> ();
-		body.velocity = new Vector2 (0, -(1 + Random.Range(-0.1f, 0.1f)));
+
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-		//create rotation
-		Vector2 target = this.GetTarget ();
+	void Update () {
+		float dy = m_speed * Time.deltaTime;
+		Vector2 targetDirection = this.GetTarget ().normalized;
+		targetDirection.y *= dy;
 
-		Quaternion wantedRotation = Quaternion.LookRotation(target);
-
-		//then rotate
-		transform.rotation = Quaternion.Lerp(transform.rotation, wantedRotation, Time.time * 1);
+		this.transform.Translate(targetDirection);
 	}
 
 	// returns a point directly ahead of the ship
@@ -28,7 +26,8 @@ public class LinearFlightPattern : MonoBehaviour {
 		Vector2 position = this.transform.position;
 
 		// correct so that the ship is pointing straight ahead
-		target.x = position.x;
-		return position - target;
+		target.x = this.transform.position.x;
+
+		return target - position;
 	}
 }
