@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 584081368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9.5}
+  m_LocalPosition: {x: 0, y: 9, z: -9.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &738764808
 Transform:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 738764807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 9, z: 10}
+  m_LocalPosition: {x: 0, y: 9, z: 10}
   m_LocalScale: {x: 12, y: 18, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -213,6 +213,7 @@ GameObject:
   - 114: {fileID: 1051315372}
   - 114: {fileID: 1051315371}
   - 114: {fileID: 1051315370}
+  - 114: {fileID: 1051315375}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -231,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b507d9ced2ce5764eb2f35034fd84a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipTypes: []
 --- !u!114 &1051315371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b0afd66fa00c74c9a624115f0fa023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerPrefab: {fileID: 163028, guid: c430904dc8c23c148b61dee0a09a43a3, type: 2}
 --- !u!114 &1051315373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +279,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1051315375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051315369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d5cb3e114524872888bc9e85466360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_shipTypes:
+  - {fileID: 148634, guid: 46aa0c6b5dd57af4c8b5ba0bfc38b201, type: 2}
+  spawnTime: .5
+  spawnDelay: 0
 --- !u!1 &1325147872
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +388,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1325147872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 9, z: -10}
+  m_LocalPosition: {x: 0, y: 9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
