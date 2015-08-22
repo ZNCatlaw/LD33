@@ -153,6 +153,7 @@ GameObject:
   - 114: {fileID: 1051315372}
   - 114: {fileID: 1051315371}
   - 114: {fileID: 1051315370}
+  - 114: {fileID: 1051315375}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b507d9ced2ce5764eb2f35034fd84a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipTypes: []
 --- !u!114 &1051315371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +218,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1051315375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051315369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d5cb3e114524872888bc9e85466360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_shipTypes:
+  - {fileID: 148634, guid: 46aa0c6b5dd57af4c8b5ba0bfc38b201, type: 2}
+  spawnTime: .5
+  spawnDelay: 0
 --- !u!1 &1325147872
 GameObject:
   m_ObjectHideFlags: 0
