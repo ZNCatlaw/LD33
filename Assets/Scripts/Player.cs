@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        m_Eyes = new Eye[1];
+        m_Eyes = new Eye[2];
         GameObject leftEye = Instantiate(m_EyePrefab, transform.position, transform.rotation) as GameObject;
         leftEye.transform.parent = transform;
         leftEye.transform.Translate( new Vector2(-1, 0));
@@ -24,9 +24,25 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        float horizontal = Input.GetAxis("LeftHorizontal");
-        float vertical = Input.GetAxis("LeftVertical");
+        {
+            float horizontal = Input.GetAxis("LeftHorizontal");
+            float vertical = Input.GetAxis("LeftVertical");
+            vertical = Mathf.Max(vertical, 0);
 
+            Vector3 lookDirection = new Vector2(horizontal, vertical);
 
+            m_Eyes[0].transform.GetChild(0).transform.localPosition =
+                new Vector3(lookDirection.x, lookDirection.y, -1);
+        }
+        {
+            float horizontal = Input.GetAxis("RightHorizontal");
+            float vertical = Input.GetAxis("RightVertical");
+            vertical = Mathf.Max(vertical, 0);
+
+            Vector3 lookDirection = new Vector2(horizontal, vertical);
+
+            m_Eyes[1].transform.GetChild(0).transform.localPosition =
+                new Vector3(lookDirection.x, lookDirection.y, -1);
+        }
     }
 }
