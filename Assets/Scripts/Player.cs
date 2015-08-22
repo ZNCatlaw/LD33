@@ -28,36 +28,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        {
-            float horizontal = Input.GetAxis("LeftHorizontal");
-            float vertical = Input.GetAxis("LeftVertical");
-            vertical = Mathf.Max(vertical, 0);
-
-            Vector3 lookDirection = new Vector2(horizontal, vertical);
-
-            m_Eyes[0].transform.GetChild(0).transform.localPosition =
-                new Vector3(lookDirection.x, lookDirection.y, -1);
-        }
-        {
-            float horizontal = Input.GetAxis("RightHorizontal");
-            float vertical = Input.GetAxis("RightVertical");
-            vertical = Mathf.Max(vertical, 0);
-
-            Vector3 lookDirection = new Vector2(horizontal, vertical);
-
-            m_Eyes[1].transform.GetChild(0).transform.localPosition =
-                new Vector3(lookDirection.x, lookDirection.y, -1);
-        }
+        m_Eyes[0].SetInput(Input.GetAxis("LeftHorizontal"), Input.GetAxis("LeftVertical"));
+        m_Eyes[1].SetInput(Input.GetAxis("RightHorizontal"), Input.GetAxis("RightVertical"));
 
         if (Input.GetAxis("LeftFire") > 0.1f)
         {
             ProjectileManager projectileManager = m_Game.GetComponent<ProjectileManager>();
-            projectileManager.AddLaser(m_Eyes[0].transform.position, new Vector3(0, -1, 0));
+            projectileManager.AddLaser(m_Eyes[0].transform.position, m_Eyes[0].m_LookDirection );
         }
         if (Input.GetAxis("RightFire") > 0.1f)
         {
             ProjectileManager projectileManager = m_Game.GetComponent<ProjectileManager>();
-            projectileManager.AddLaser(m_Eyes[1].transform.position, new Vector3(0, -1, 0));
+            projectileManager.AddLaser(m_Eyes[1].transform.position, m_Eyes[1].m_LookDirection );
         }
     }
 }
