@@ -96,22 +96,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 115802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e948c9b0a7446c6a5a4d46af3b3f76, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ef149b95fe736242940d9dc97411e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  greyscale:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  original:
-    r: 1
-    g: 0
-    b: 1
-    a: 1
-  spriteRenderer: {fileID: 0}
-  maaaagic: {x: .300000012, y: .589999974, z: .109999999}
+  m_LookDirection: {x: 0, y: 0}
+  m_LaserPrefab: {fileID: 0}
+  m_Laser: {fileID: 0}
 --- !u!114 &11499376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LookDirection: {x: 0, y: 0}
+  m_LaserPrefab: {fileID: 0}
+  m_Laser: {fileID: 0}
 --- !u!212 &21208748
 SpriteRenderer:
   m_ObjectHideFlags: 1
