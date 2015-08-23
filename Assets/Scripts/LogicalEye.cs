@@ -3,6 +3,7 @@ using System.Collections;
 
 public class LogicalEye : MonoBehaviour
 {
+	private bool m_EyeClosing;
     public Eye m_TargetEye;
     public PlayerManager m_PlayerManager;
 
@@ -19,6 +20,11 @@ public class LogicalEye : MonoBehaviour
         m_IdleTimeoutRemaining = 0;
     }
 
+	void ReturnTargetEye() {
+		m_PlayerManager.ReturnEye( m_TargetEye );
+		m_TargetEye = null;
+		m_EyeClosing = false;
+	}
     // Update is called once per frame
     void Update()
     {
@@ -36,14 +42,17 @@ public class LogicalEye : MonoBehaviour
             m_IdleTimeoutRemaining -= Time.deltaTime;
         }
 
-        if (m_TargetEye && m_IdleTimeoutRemaining <= 0)
+        if (!m_EyeClosing && m_TargetEye && m_IdleTimeoutRemaining <= 0)
         {
             //The player is idle, close and release the eye
-            m_TargetEye.Close();
-            m_PlayerManager.ReturnEye( m_TargetEye );
-            m_TargetEye = null;
-        }
-        else if( !m_TargetEye && m_IdleTimeoutRemaining > 0.0f)
+            m_TargetEye.Close(this.ReturnTargetEye);
+			m_EyeClosing = true;
+		} else if (m_EyeClosing && m_TargetEye && m_IdleTimeoutRemaining > 0.0f) {
+
+			m_EyeClosing = false;
+			m_TargetEye.SetColor(m_Colour);
+			m_TargetEye.Open();
+		} else if(!m_EyeClosing && !m_TargetEye && m_IdleTimeoutRemaining > 0.0f)
         {
             //The player is not idle, find an eye to use
             m_TargetEye = m_PlayerManager.GetEye();
