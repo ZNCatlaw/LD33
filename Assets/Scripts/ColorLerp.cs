@@ -4,13 +4,25 @@ using System.Collections;
 public class ColorLerp : MonoBehaviour {
 	public Material material1;
 	public Material material2;
-	public float duration = 2.0F;
+	public float duration = 3.0F;
 
 	private IEnumerator toGreyscale;
 	private bool toGreyscaleIsRunning = false;
 	private IEnumerator toFullColor;
 	private bool toFullColorIsRunning = false;
-	
+
+	public delegate void Callback ();
+
+	private bool _isGreyscale = true;
+	public bool isGreyscale {
+		get { return _isGreyscale; }
+	}
+
+	private bool _isFullColor = false;
+	public bool isFullColor {
+		get { return _isFullColor; }
+	}
+
 	public void ToFullColor () {
 		if (toGreyscale != null) {
 			StopCoroutine(toGreyscale);
@@ -18,32 +30,38 @@ public class ColorLerp : MonoBehaviour {
 
 		if (toFullColorIsRunning == false) {
 			toFullColorIsRunning = true;
+
 			toFullColor = Lerping (0, 1);
 			StartCoroutine (toFullColor);
 		}
 
 	}
 
-	public void ToGreyscale () {	
+	public void ToGreyscale (Callback callback) {	
 		if (toFullColor != null) {
 			StopCoroutine(toFullColor);
 		}
 
 		if (toGreyscaleIsRunning == false) {
 			toGreyscaleIsRunning = true;
-			toGreyscale = Lerping (1, 0);
+
+			toGreyscale = Lerping (1, 0, callback);
 			StartCoroutine (toGreyscale);	
 		}
 
 	}
-	
+
 	IEnumerator Lerping (float from, float to) {
+		return this.Lerping (from, to, null);
+	}
+
+	IEnumerator Lerping (float from, float to, Callback callback) {
 		SpriteRenderer rend = GetComponent<SpriteRenderer> ();
 		float lerp ;
 		float time = 0;
 
 		do {
-			lerp = Mathf.Lerp(from, to, time/duration);
+			lerp = Mathf.SmoothStep(from, to, time/duration);
 			rend.material.Lerp(material1, material2, lerp);
 			time += Time.deltaTime;
 			yield return null;
@@ -52,9 +70,15 @@ public class ColorLerp : MonoBehaviour {
 		// we just finished one of the coroutines
 		if (from > to) {
 			toGreyscaleIsRunning = false;
+			_isGreyscale = true;
+			_isFullColor = false;
 		} else {
 			toFullColorIsRunning = false;
+			_isFullColor = true;
+			_isGreyscale = false;
 		}
+
+		if (callback != null) { callback(); }
 	}
 
 }
