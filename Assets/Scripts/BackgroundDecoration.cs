@@ -4,25 +4,25 @@ using System.Collections;
 public class BackgroundDecoration : MonoBehaviour {
 
     public int pixelsPerUnit = 20;
-    public Sprite[] decoratorSprites;
-
-    [HideInInspector]
-    public float desiredYPos = 0.0f;
-
-    private float onePixel = 0.0f;
+    public GameObject[] decoratorPrefabs;
+    public Vector3 desiredPos;
 
     // Use this for initialization
     void Start ()
     {
-        GetComponent<SpriteRenderer>().sprite = decoratorSprites[Random.Range(0, decoratorSprites.Length)];
-        onePixel = 1f / pixelsPerUnit;
+        var prefab = decoratorPrefabs[Random.Range(0, decoratorPrefabs.Length)];
+        var child = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
+        child.transform.parent = gameObject.transform;
+        desiredPos = transform.position;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
         var newPosition = transform.position;
-        newPosition.y = Utils.Math.RoundToPixel(desiredYPos, pixelsPerUnit);
+        newPosition.x = Utils.Math.RoundToPixel(desiredPos.x, pixelsPerUnit);
+        newPosition.y = Utils.Math.RoundToPixel(desiredPos.y, pixelsPerUnit);
+        newPosition.z = Utils.Math.RoundToPixel(desiredPos.z, pixelsPerUnit);
         transform.position = newPosition;
 	}
 }

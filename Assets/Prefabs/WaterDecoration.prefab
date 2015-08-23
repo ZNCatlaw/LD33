@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 477448}
   - 114: {fileID: 11485224}
   m_Layer: 0
-  m_Name: BackgroundDecoration
+  m_Name: WaterDecoration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,8 +41,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pixelsPerUnit: 20
   decoratorPrefabs:
-  - {fileID: 136222, guid: b64a6dc494498ac4ca1fb018e862f1dc, type: 2}
   - {fileID: 172278, guid: 60307908de6a55c45ade3dc7d40b0fe2, type: 2}
+  - {fileID: 136222, guid: b64a6dc494498ac4ca1fb018e862f1dc, type: 2}
   - {fileID: 194210, guid: fb634667cce85f24a9dbeaf9d1399491, type: 2}
   desiredPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
@@ -142,11 +142,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: decoratorPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 136222, guid: b64a6dc494498ac4ca1fb018e862f1dc, type: 2}
+      objectReference: {fileID: 172278, guid: 60307908de6a55c45ade3dc7d40b0fe2, type: 2}
     - target: {fileID: 0}
       propertyPath: decoratorPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 172278, guid: 60307908de6a55c45ade3dc7d40b0fe2, type: 2}
+      objectReference: {fileID: 136222, guid: b64a6dc494498ac4ca1fb018e862f1dc, type: 2}
     - target: {fileID: 0}
       propertyPath: decoratorPrefabs.Array.data[2]
       value: 
