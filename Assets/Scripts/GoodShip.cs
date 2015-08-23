@@ -31,7 +31,6 @@ public class GoodShip : MonoBehaviour {
             m_Health -= 10.0f * Time.deltaTime;
             if ( m_Health <=0 )
             {
-                Debug.Log("BAM");
                 Explode();
             }
         }
