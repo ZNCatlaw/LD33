@@ -29,8 +29,6 @@ public class GoodShip : MonoBehaviour {
         if (other.name == "EyeLaser")
         {
             m_Health -= 10.0f * Time.deltaTime;
-            Debug.Log(m_Health);
-
             if ( m_Health <=0 )
             {
                 Debug.Log("BAM");
