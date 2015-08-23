@@ -5,6 +5,7 @@ public class Eye : MonoBehaviour
 {
     public Vector2 m_LookDirection;
     public GameObject m_LaserPrefab;
+	public float closeLidDelay;
 
 	public bool isClosed {
 		get { return colorLerp.isGreyscale; }
@@ -63,8 +64,12 @@ public class Eye : MonoBehaviour
 		eyeClosed.GetComponent<SpriteRenderer> ().enabled = false;
 	}
 
-	private void CloseLid () {
+	private void _CloseLid () {
 		eyeClosed.GetComponent<SpriteRenderer> ().enabled = true;
+	}
+
+	private void CloseLid () {
+		Invoke ("_CloseLid", this.closeLidDelay);
 	}
 
 	public void Open () {
