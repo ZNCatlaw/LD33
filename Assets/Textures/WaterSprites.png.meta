@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 641be78a3209049448cd5d1ca4104b32
+timeCreated: 1440351468
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: WaterSprites_0
+    21300002: WaterSprites_1
+    21300004: WaterSprites_2
+    21300006: WaterSprites_3
+    21300008: WaterSprites_4
+    21300010: WaterSprites_5
+    21300012: WaterSprites_6
+    21300014: WaterSprites_7
+    21300016: WaterSprites_8
+    21300018: WaterSprites_9
+    21300020: WaterSprites_10
+    21300022: WaterSprites_11
+    21300024: WaterSprites_12
+    21300026: WaterSprites_13
+    21300028: WaterSprites_14
+    21300030: WaterSprites_15
+    21300032: WaterSprites_16
+    21300034: WaterSprites_17
+    21300036: WaterSprites_18
+    21300038: WaterSprites_19
+    21300040: WaterSprites_20
+    21300042: WaterSprites_21
+    21300044: WaterSprites_22
+    21300046: WaterSprites_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 20
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: WaterSprites_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 23
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 23
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 23
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_3
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 23
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_4
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 23
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_5
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 23
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_6
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 23
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 23
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 13
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_9
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 13
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_10
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 13
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_11
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 13
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_12
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 13
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_13
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 13
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_14
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 13
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 13
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_17
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 3
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_18
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 3
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_19
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 3
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_20
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 3
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_21
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 3
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_22
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 3
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WaterSprites_23
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 3
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
