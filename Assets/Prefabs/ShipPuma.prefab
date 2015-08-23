@@ -15,7 +15,7 @@ GameObject:
   - 95: {fileID: 9577238}
   - 50: {fileID: 5085626}
   - 114: {fileID: 11424656}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShipPuma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,6 +193,10 @@ Prefab:
       propertyPath: shipExplosion
       value: 
       objectReference: {fileID: 184816, guid: 1d58bf398f71c4e408f941a79f73d6a6, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157644}
