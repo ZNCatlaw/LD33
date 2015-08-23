@@ -16,7 +16,6 @@ public class Beast : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D collider) {
 		GameObject other = collider.gameObject;
 		if (other.name == "ShipPuma") {
-			Debug.Log ("BAM");
 
 			GoodShip ship = other.GetComponent<GoodShip> ();
 			ship.Explode ();

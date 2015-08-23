@@ -5,14 +5,56 @@ public class ColorLerp : MonoBehaviour {
 	public Material material1;
 	public Material material2;
 	public float duration = 2.0F;
-	public SpriteRenderer rend;
 
-	void Start() {
-		rend = GetComponent<SpriteRenderer>();
-		rend.material = material1;
+	private IEnumerator toGreyscale;
+	private bool toGreyscaleIsRunning = false;
+	private IEnumerator toFullColor;
+	private bool toFullColorIsRunning = false;
+	
+	public void ToFullColor () {
+		if (toGreyscale != null) {
+			StopCoroutine(toGreyscale);
+		}
+
+		if (toFullColorIsRunning == false) {
+			toFullColorIsRunning = true;
+			toFullColor = Lerping (0, 1);
+			StartCoroutine (toFullColor);
+		}
+
 	}
-	void Update() {
-		float lerp = Mathf.PingPong(Time.time, duration) / duration;
-		rend.material.Lerp(material1, material2, lerp);
+
+	public void ToGreyscale () {	
+		if (toFullColor != null) {
+			StopCoroutine(toFullColor);
+		}
+
+		if (toGreyscaleIsRunning == false) {
+			toGreyscaleIsRunning = true;
+			toGreyscale = Lerping (1, 0);
+			StartCoroutine (toGreyscale);	
+		}
+
 	}
+	
+	IEnumerator Lerping (float from, float to) {
+		SpriteRenderer rend = GetComponent<SpriteRenderer> ();
+		float lerp ;
+		float time = 0;
+
+		do {
+			lerp = Mathf.Lerp(from, to, time/duration);
+			rend.material.Lerp(material1, material2, lerp);
+			time += Time.deltaTime;
+			yield return null;
+		} while (lerp != to);
+
+		// we just finished one of the coroutines
+		if (from > to) {
+			toGreyscaleIsRunning = false;
+		} else {
+			toFullColorIsRunning = false;
+		}
+	}
+
 }
