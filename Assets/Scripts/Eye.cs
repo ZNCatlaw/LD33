@@ -10,7 +10,7 @@ public class Eye : MonoBehaviour
 	public bool isClosed {
 		get { return colorLerp.isGreyscale; }
 	}
-
+	
 	private ColorLerp colorLerp;
 	private GameObject eyeClosed;
 
@@ -59,6 +59,10 @@ public class Eye : MonoBehaviour
 
         m_LaserIntensity = 1.0f;
     }
+
+	public void SetColor (string colorName) {
+		this.GetComponent<SpriteRenderer>().sprite = this.transform.Find ("EyeOpening" + colorName).gameObject.GetComponent<SpriteRenderer>().sprite;
+	}
 
 	private void OpenLid () {
 		eyeClosed.GetComponent<SpriteRenderer> ().enabled = false;
