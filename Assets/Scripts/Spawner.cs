@@ -31,6 +31,7 @@ public class Spawner : MonoBehaviour {
 		ship = Instantiate (ship, position, Quaternion.identity) as GameObject;
 		ship.transform.parent = m_spawnedShips.transform;
 		ship.GetComponent<LinearAttackPattern>().m_projectileManager = m_projectileManager;
+		ship.gameObject.name = "ShipPuma";
 		DestroyObject (ship, 5f);
 	}
 	
