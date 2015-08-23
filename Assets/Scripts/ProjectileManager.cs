@@ -37,8 +37,8 @@ public class ProjectileManager : MonoBehaviour
 		rot.SetLookRotation(direction, new Vector3( 0, 0, 1));
 		GameObject laser = Instantiate(m_LaserPrefab, position, rot) as GameObject;
 		laser.transform.parent = m_Projectiles.transform;
+		laser.name = "SmallLaser";
 		
-		Debug.Log (direction);
 		Projectile projectile = laser.GetComponent<Projectile>();
 		projectile.m_Velocity = direction * bullet_speed;
 		
