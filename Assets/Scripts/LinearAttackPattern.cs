@@ -26,7 +26,7 @@ public class LinearAttackPattern : MonoBehaviour {
 	IEnumerator Shooting () {
 		int count = 0;
 
-		while(count <= m_salvo_size) { 
+		while(count < m_salvo_size) { 
 			count++;
 			yield return new WaitForSeconds(Random.Range(m_bullet_frequency - 0.1f, m_bullet_frequency + 0.1f));
 			Shoot(); 
