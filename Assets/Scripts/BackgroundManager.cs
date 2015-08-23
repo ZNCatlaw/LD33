@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BackgroundBehaviour : MonoBehaviour {
+public class BackgroundManager : MonoBehaviour {
 
     public GameObject decoratorPrefab;
     [Range(0.0f, 5.0f)]
@@ -12,6 +12,8 @@ public class BackgroundBehaviour : MonoBehaviour {
     public int spawnDensity = 2;
     [Range(0.0f, 1.0f)]
     public float spawnDensityVariance = 0f;
+    [Range(0.0f, 5.0f)]
+    public float scrollSpeed = 0f;
 
     private float accumulator = 0f;
     private float nextSpawnTime = 0f;
