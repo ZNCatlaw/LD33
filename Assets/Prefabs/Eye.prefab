@@ -42,7 +42,7 @@ GameObject:
   - 4: {fileID: 412178}
   - 114: {fileID: 11499376}
   - 212: {fileID: 21208748}
-  - 114: {fileID: 11445154}
+  - 114: {fileID: 11412754}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -88,7 +88,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 412178}
   m_RootOrder: 1
---- !u!114 &11445154
+--- !u!114 &11412754
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -99,19 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e948c9b0a7446c6a5a4d46af3b3f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  greyscale:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  original:
-    r: 1
-    g: 0
-    b: 1
-    a: 1
-  spriteRenderer: {fileID: 0}
-  maaaagic: {x: .300000012, y: .589999974, z: .109999999}
+  material1: {fileID: 2100000, guid: ddcde591e544841b0ac9abb00efc1e59, type: 2}
+  material2: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  duration: 2
+  rend: {fileID: 0}
 --- !u!114 &11499376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,7 +125,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: ddcde591e544841b0ac9abb00efc1e59, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -149,7 +140,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 70c38a67f6267f744af7a9977a1d73a7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: .963235319, b: .963235319, a: 1}
 --- !u!212 &21230166
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -242,6 +233,18 @@ Prefab:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ddcde591e544841b0ac9abb00efc1e59, type: 2}
+    - target: {fileID: 0}
+      propertyPath: material1
+      value: 
+      objectReference: {fileID: 2100000, guid: ddcde591e544841b0ac9abb00efc1e59, type: 2}
+    - target: {fileID: 0}
+      propertyPath: material2
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 115802}
