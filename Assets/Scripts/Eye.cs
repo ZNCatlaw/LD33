@@ -10,12 +10,16 @@ public class Eye : MonoBehaviour
 	public bool isClosed {
 		get { return colorLerp.isGreyscale; }
 	}
-
+	
 	private ColorLerp colorLerp;
 	private GameObject eyeClosed;
 
     GameObject m_Laser;
     float m_LaserIntensity;
+
+    public string m_Horizontal;
+    public string m_Vertical;
+    public string m_Trigger;
 
     //[0..1], [0..1] (I think? or maybe [0..1) ? )
     public void SetInput(float horizontal, float vertical)
@@ -33,32 +37,39 @@ public class Eye : MonoBehaviour
 
     public void Fire()
     {
-        Vector2 start = transform.GetChild(0).transform.position;
-        Vector2 end = start + m_LookDirection * 25.0f;
-
-        RaycastHit2D rayHit = Physics2D.Raycast(start,
-            m_LookDirection,
-            100.0f,
-            1 << LayerMask.NameToLayer("Col_Good Ships"));
-
-        if (rayHit.collider != null)
+        if (m_LookDirection.magnitude > 0.1f)
         {
-            end = rayHit.point;
+            Vector2 start = transform.GetChild(0).transform.position;
+            Vector2 end = start + m_LookDirection * 25.0f;
+
+            RaycastHit2D rayHit = Physics2D.Raycast(start,
+                m_LookDirection,
+                100.0f,
+                1 << LayerMask.NameToLayer("Col_Good Ships"));
+
+            if (rayHit.collider != null)
+            {
+                end = rayHit.point;
+            }
+
+            Vector2 delta = end - start;
+            float distance = delta.magnitude + 1.0f;
+            //Debug.Log(distance);
+
+            float angle = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle + 90.0f, Vector3.forward);
+            m_Laser.transform.rotation = q;// Quaternion.Slerp(m_Eyes[0].m_Laser.transform.rotation, q, Time.deltaTime * 5.0f );
+            m_Laser.transform.localScale = new Vector3(0.25f, distance, 1);// 1, distance, 1);
+            Vector2 temp = m_Laser.transform.rotation * new Vector2(0, distance * (-0.5f));//.localPosition;
+            m_Laser.transform.localPosition = temp;//
+
+            m_LaserIntensity = 1.0f;
         }
-
-        Vector2 delta = end - start;
-        float distance = delta.magnitude + 1.0f;
-        //Debug.Log(distance);
-
-        float angle = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.AngleAxis(angle + 90.0f, Vector3.forward);
-        m_Laser.transform.rotation = q;// Quaternion.Slerp(m_Eyes[0].m_Laser.transform.rotation, q, Time.deltaTime * 5.0f );
-        m_Laser.transform.localScale = new Vector3(0.25f, distance, 1);// 1, distance, 1);
-        Vector2 temp = m_Laser.transform.rotation * new Vector2(0, distance * (-0.5f));//.localPosition;
-        m_Laser.transform.localPosition = temp;//
-
-        m_LaserIntensity = 1.0f;
     }
+
+	public void SetColor (string colorName) {
+		this.GetComponent<SpriteRenderer>().sprite = this.transform.Find ("EyeOpening" + colorName).gameObject.GetComponent<SpriteRenderer>().sprite;
+	}
 
 	private void OpenLid () {
 		eyeClosed.GetComponent<SpriteRenderer> ().enabled = false;
@@ -95,11 +106,10 @@ public class Eye : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Update the laser intensity
         m_LaserIntensity = Mathf.Clamp(m_LaserIntensity - 4.0f * Time.deltaTime, 0, 1);
-//        m_LaserIntensity = Mathf.Lerp(m_LaserIntensity, 0.0f, 0.5f * Time.deltaTime );
-
         Color color = m_Laser.GetComponent<MeshRenderer>().material.GetColor("_Color");
         color.a = m_LaserIntensity;
         m_Laser.GetComponent<Renderer>().material.SetColor("_Color", color);
-	}
+    }
 }

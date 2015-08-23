@@ -29,7 +29,6 @@ public class GoodShip : MonoBehaviour {
         if (other.name == "EyeLaser")
         {
             m_Health -= 10.0f * Time.deltaTime;
-
             if ( m_Health <=0 )
             {
                 Explode();

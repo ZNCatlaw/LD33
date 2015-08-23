@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipExplosion: {fileID: 184816, guid: 1d58bf398f71c4e408f941a79f73d6a6, type: 2}
-  m_Health: 2
+  m_Health: 4
 --- !u!114 &11453228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,7 +200,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Health
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
