@@ -11,7 +11,7 @@ public class ShipManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		
 	}
 
