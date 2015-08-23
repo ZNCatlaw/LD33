@@ -69,14 +69,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pixelsPerUnit: 20
-  waterDecorationPrefab: {fileID: 130366, guid: b13592dc3922fcd44b136818b086f1c8,
-    type: 2}
-  waterDecorationPoolSize: 32
-  spawnRate: 1.5
-  spawnRateVariance: .5
-  spawnDensity: 2
-  spawnDensityVariance: .5
-  scrollSpeed: 1.5
+  waterPrefab: {fileID: 130366, guid: b13592dc3922fcd44b136818b086f1c8, type: 2}
+  waterPoolSize: 64
+  cloudPrefab: {fileID: 156564, guid: 2ecaf0c348a796342a19db9fd853b385, type: 2}
+  cloudPoolSize: 32
+  waterSpawnRate: .75
+  waterSpawnRateVariance: .5
+  cloudSpawnRate: .666999996
+  cloudSpawnRateVariance: .5
+  cloudYOffset: 12
+  yScrollSpeed: .5
+  xScrollSpeed: .349999994
+  yParallax: 3
+  xParallax: 1
 --- !u!212 &21249924
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -128,7 +133,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: spawnRateVariance
-      value: .5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: spawnRate
@@ -149,6 +154,62 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: scrollSpeed
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waterPrefab
+      value: 
+      objectReference: {fileID: 130366, guid: b13592dc3922fcd44b136818b086f1c8, type: 2}
+    - target: {fileID: 0}
+      propertyPath: cloudPrefab
+      value: 
+      objectReference: {fileID: 156564, guid: 2ecaf0c348a796342a19db9fd853b385, type: 2}
+    - target: {fileID: 0}
+      propertyPath: parallax
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waterToCloudRatio
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: yScrollSpeed
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: xScrollSpeed
+      value: .349999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: yParallax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: xParallax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waterPoolSize
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waterSpawnRateVariance
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cloudSpawnRateVariance
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cloudSpawnRate
+      value: .666999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cloudYOffset
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waterSpawnRate
+      value: .75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
