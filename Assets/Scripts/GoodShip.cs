@@ -4,6 +4,7 @@ using System.Collections;
 public class GoodShip : MonoBehaviour {
 
 	public GameObject shipExplosion;
+    public float m_Health;
 
 	// Use this for initialization
 	void Start () {
@@ -21,5 +22,21 @@ public class GoodShip : MonoBehaviour {
 		DestroyObject (explosion, Random.Range(0.1f, 0.2f));
 		DestroyObject (gameObject);
 	}
+
+    void OnTriggerStay2D(Collider2D collider)
+    {
+        GameObject other = collider.gameObject;
+        if (other.name == "EyeLaser")
+        {
+            m_Health -= 10.0f * Time.deltaTime;
+            Debug.Log(m_Health);
+
+            if ( m_Health <=0 )
+            {
+                Debug.Log("BAM");
+                Explode();
+            }
+        }
+    }
 
 }

@@ -5,7 +5,7 @@ public class Eye : MonoBehaviour
 {
     public Vector2 m_LookDirection;
     public GameObject m_LaserPrefab;
-    public GameObject m_Laser;
+    GameObject m_Laser;
     float m_LaserIntensity;
 
     //[0..1], [0..1] (I think? or maybe [0..1) ? )
@@ -37,7 +37,7 @@ public class Eye : MonoBehaviour
         }
 
         Vector2 delta = end - start;
-        float distance = delta.magnitude;
+        float distance = delta.magnitude + 1.0f;
         //Debug.Log(distance);
 
         float angle = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
@@ -55,6 +55,7 @@ public class Eye : MonoBehaviour
     {
         m_Laser = Instantiate(m_LaserPrefab, transform.position, transform.rotation) as GameObject;
         m_Laser.transform.parent = transform;
+        m_Laser.name = "EyeLaser";
     }
 
     // Update is called once per frame
