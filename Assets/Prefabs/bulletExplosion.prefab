@@ -13,7 +13,7 @@ GameObject:
   - 50: {fileID: 5096074}
   - 33: {fileID: 3388734}
   m_Layer: 11
-  m_Name: BulletExplosion
+  m_Name: bulletExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3966fed6fa0744243a54667b2c5ded94, type: 2}
+  - {fileID: 2100000, guid: 0b5fa60d8ef26410cba445c5e71e5550, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -114,6 +114,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b5fa60d8ef26410cba445c5e71e5550, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196982}
