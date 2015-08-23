@@ -28,14 +28,20 @@ public class ProjectileManager : MonoBehaviour
 
     public void AddLaser( Vector3 position, Vector3 direction )
     {
-        Quaternion rot = new Quaternion();
-        rot.SetLookRotation(direction, new Vector3( 0, 0, 1));
-        GameObject laser = Instantiate(m_LaserPrefab, position, rot) as GameObject;
-        laser.transform.parent = m_Projectiles.transform;
-
-        Projectile projectile = laser.GetComponent<Projectile>();
-        projectile.m_Velocity = direction * 10.0f;
-
-        DestroyObject(laser, 2.0f);
+		AddLaser (position, direction, 10.0f);
     }
+
+	public void AddLaser( Vector3 position, Vector3 direction, float bullet_speed )
+	{
+		Quaternion rot = new Quaternion();
+		rot.SetLookRotation(direction, new Vector3( 0, 0, 1));
+		GameObject laser = Instantiate(m_LaserPrefab, position, rot) as GameObject;
+		laser.transform.parent = m_Projectiles.transform;
+		
+		Debug.Log (direction);
+		Projectile projectile = laser.GetComponent<Projectile>();
+		projectile.m_Velocity = direction * bullet_speed;
+		
+		DestroyObject(laser, 2.0f);
+	}
 }
