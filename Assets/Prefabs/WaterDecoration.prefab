@@ -8,7 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477448}
-  - 212: {fileID: 21232738}
   - 114: {fileID: 11485224}
   m_Layer: 0
   m_Name: BackgroundDecoration
@@ -41,48 +40,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pixelsPerUnit: 20
-  decoratorSprites:
-  - {fileID: 21300000, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300002, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300016, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300018, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300020, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300022, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300024, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300026, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300028, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300030, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300032, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300034, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300036, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  - {fileID: 21300038, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  scrollSpeed: .25
---- !u!212 &21232738
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130366}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 641be78a3209049448cd5d1ca4104b32, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  decoratorPrefabs:
+  - {fileID: 136222, guid: b64a6dc494498ac4ca1fb018e862f1dc, type: 2}
+  - {fileID: 172278, guid: 60307908de6a55c45ade3dc7d40b0fe2, type: 2}
+  - {fileID: 194210, guid: fb634667cce85f24a9dbeaf9d1399491, type: 2}
+  desiredPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -93,6 +55,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: decoratorSprites.Array.size
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: decoratorPrefabs.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: decorationSprite
@@ -173,6 +139,18 @@ Prefab:
       value: 
       objectReference: {fileID: 21300038, guid: 641be78a3209049448cd5d1ca4104b32,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: decoratorPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 136222, guid: b64a6dc494498ac4ca1fb018e862f1dc, type: 2}
+    - target: {fileID: 0}
+      propertyPath: decoratorPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 172278, guid: 60307908de6a55c45ade3dc7d40b0fe2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: decoratorPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 194210, guid: fb634667cce85f24a9dbeaf9d1399491, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 130366}

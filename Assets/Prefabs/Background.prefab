@@ -68,11 +68,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8324f52e7fe7e4540b119a62a2ce3e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixelsPerUnit: 20
   decoratorPrefab: {fileID: 130366, guid: b13592dc3922fcd44b136818b086f1c8, type: 2}
   spawnRate: 2
   spawnRateVariance: .5
   spawnDensity: 4
   spawnDensityVariance: .5
+  scrollSpeed: 0
 --- !u!212 &21249924
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -129,6 +131,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: spawnRate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pixelsPerUnit
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

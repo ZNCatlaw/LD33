@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 641be78a3209049448cd5d1ca4104b32
-timeCreated: 1440288359
+timeCreated: 1440351468
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 23
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_2
       rect:
@@ -100,8 +100,8 @@ TextureImporter:
         y: 23
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_3
       rect:
@@ -110,8 +110,8 @@ TextureImporter:
         y: 23
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_4
       rect:
@@ -120,8 +120,8 @@ TextureImporter:
         y: 23
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_5
       rect:
@@ -130,8 +130,8 @@ TextureImporter:
         y: 23
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_6
       rect:
@@ -140,8 +140,8 @@ TextureImporter:
         y: 23
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_7
       rect:
@@ -150,8 +150,8 @@ TextureImporter:
         y: 23
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_8
       rect:
@@ -160,8 +160,8 @@ TextureImporter:
         y: 13
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_9
       rect:
@@ -170,8 +170,8 @@ TextureImporter:
         y: 13
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_10
       rect:
@@ -180,8 +180,8 @@ TextureImporter:
         y: 13
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_11
       rect:
@@ -190,8 +190,8 @@ TextureImporter:
         y: 13
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_12
       rect:
@@ -200,8 +200,8 @@ TextureImporter:
         y: 13
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_13
       rect:
@@ -210,8 +210,8 @@ TextureImporter:
         y: 13
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_14
       rect:
@@ -220,8 +220,8 @@ TextureImporter:
         y: 13
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_15
       rect:
@@ -230,8 +230,8 @@ TextureImporter:
         y: 13
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_16
       rect:
@@ -240,8 +240,8 @@ TextureImporter:
         y: 3
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_17
       rect:
@@ -250,8 +250,8 @@ TextureImporter:
         y: 3
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_18
       rect:
@@ -260,8 +260,8 @@ TextureImporter:
         y: 3
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_19
       rect:
@@ -270,8 +270,8 @@ TextureImporter:
         y: 3
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_20
       rect:
@@ -280,8 +280,8 @@ TextureImporter:
         y: 3
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_21
       rect:
@@ -290,8 +290,8 @@ TextureImporter:
         y: 3
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_22
       rect:
@@ -300,8 +300,8 @@ TextureImporter:
         y: 3
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WaterSprites_23
       rect:
@@ -310,8 +310,8 @@ TextureImporter:
         y: 3
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
