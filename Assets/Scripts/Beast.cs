@@ -23,6 +23,5 @@ public class Beast : MonoBehaviour {
 			Projectile projectile = other.GetComponent<Projectile> ();
 			projectile.Explode ();
 		}
-
 	}
 }
