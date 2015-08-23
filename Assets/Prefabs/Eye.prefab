@@ -42,10 +42,6 @@ GameObject:
   - 4: {fileID: 412178}
   - 114: {fileID: 11499376}
   - 212: {fileID: 21208748}
-<<<<<<< HEAD
-  - 114: {fileID: 11412754}
-=======
->>>>>>> master
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -137,9 +133,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 412178}
   m_RootOrder: 1
-<<<<<<< HEAD
---- !u!114 &11412754
-=======
 --- !u!4 &444262
 Transform:
   m_ObjectHideFlags: 1
@@ -153,7 +146,6 @@ Transform:
   m_Father: {fileID: 412178}
   m_RootOrder: 2
 --- !u!114 &11445154
->>>>>>> master
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -207,9 +199,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 70c38a67f6267f744af7a9977a1d73a7, type: 3}
-<<<<<<< HEAD
-  m_Color: {r: 1, g: .963235319, b: .963235319, a: 1}
-=======
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21214140
 SpriteRenderer:
@@ -237,7 +226,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c601e902ad9a5e04b9407cf36c26e585, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
->>>>>>> master
 --- !u!212 &21230166
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -357,7 +345,6 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-<<<<<<< HEAD
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ddcde591e544841b0ac9abb00efc1e59, type: 2}
@@ -369,7 +356,6 @@ Prefab:
       propertyPath: material2
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-=======
       propertyPath: m_LocalPosition.z
       value: -.0500000007
       objectReference: {fileID: 0}
@@ -384,7 +370,6 @@ Prefab:
       propertyPath: m_LaserPrefab
       value: 
       objectReference: {fileID: 155948, guid: dd63c83076527ec42ab600721360cb1b, type: 2}
->>>>>>> master
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 115802}
