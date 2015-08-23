@@ -26,7 +26,7 @@ public class LinearAttackPattern : MonoBehaviour {
 	IEnumerator Shooting () {
 		int count = 0;
 
-		while(count <= m_salvo_size) { 
+		while(count < m_salvo_size) { 
 			count++;
 			yield return new WaitForSeconds(Random.Range(m_bullet_frequency - 0.1f, m_bullet_frequency + 0.1f));
 			Shoot(); 
@@ -35,7 +35,7 @@ public class LinearAttackPattern : MonoBehaviour {
 
 	void Shoot () {
 		// request a bullet with my position towards the target
-		m_projectileManager.AddLaser (this.transform.position, this.GetTarget().normalized, this.m_bullet_speed);
+		m_projectileManager.AddBullet(this.transform.position, this.GetTarget().normalized, this.m_bullet_speed);
 	}
 
 	// returns a point directly ahead of the ship
