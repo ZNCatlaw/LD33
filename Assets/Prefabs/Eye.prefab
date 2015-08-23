@@ -42,6 +42,7 @@ GameObject:
   - 4: {fileID: 412178}
   - 114: {fileID: 11499376}
   - 212: {fileID: 21208748}
+  - 114: {fileID: 11445154}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -87,6 +88,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 412178}
   m_RootOrder: 1
+--- !u!114 &11445154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e948c9b0a7446c6a5a4d46af3b3f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  greyscale:
+    r: 0
+    g: 0
+    b: 0
+    a: 0
+  original:
+    r: 1
+    g: 0
+    b: 1
+    a: 1
+  spriteRenderer: {fileID: 0}
+  maaaagic: {x: .300000012, y: .589999974, z: .109999999}
 --- !u!114 &11499376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,8 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LookDirection: {x: 0, y: 0}
-  m_LaserPrefab: {fileID: 189106, guid: d74accdad839d3a43a9f495859d934d8, type: 2}
-  m_Laser: {fileID: 0}
 --- !u!212 &21208748
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -208,9 +231,17 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: m_LaserPrefab
-      value: 
-      objectReference: {fileID: 189106, guid: d74accdad839d3a43a9f495859d934d8, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 115802}

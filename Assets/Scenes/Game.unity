@@ -172,7 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b507d9ced2ce5764eb2f35034fd84a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipTypes: []
+  shipTypes:
+  - {fileID: 157644, guid: e46d0d219db3ce14ea881c15f86a4bf8, type: 2}
 --- !u!114 &1051315371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +220,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1051315375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shipTypes:
-  - {fileID: 148634, guid: 46aa0c6b5dd57af4c8b5ba0bfc38b201, type: 2}
+  - {fileID: 157644, guid: e46d0d219db3ce14ea881c15f86a4bf8, type: 2}
   m_spawnTime: .5
   m_spawnDelay: 0
 --- !u!1 &1325147872
