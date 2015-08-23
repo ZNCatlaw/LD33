@@ -98,6 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef149b95fe736242940d9dc97411e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LookDirection: {x: 0, y: 0}
+  m_LaserPrefab: {fileID: 189106, guid: d74accdad839d3a43a9f495859d934d8, type: 2}
+  m_Laser: {fileID: 0}
 --- !u!212 &21208748
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -204,6 +207,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LaserPrefab
+      value: 
+      objectReference: {fileID: 189106, guid: d74accdad839d3a43a9f495859d934d8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 115802}

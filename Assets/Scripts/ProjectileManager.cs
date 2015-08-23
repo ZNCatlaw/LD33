@@ -11,7 +11,7 @@ public class ProjectileManager : MonoBehaviour
     void Start()
     {
         m_Projectiles = new GameObject();
-        m_Projectiles.transform.parent = this.transform;
+        m_Projectiles.transform.parent = transform;
         m_Projectiles.name = "Projectiles";
     }
 
@@ -26,7 +26,7 @@ public class ProjectileManager : MonoBehaviour
         }
     }
 
-    public void AddLaser( Vector3 position, Vector3 direction )
+    public void AddBullet( Vector3 position, Vector3 direction )
     {
         Quaternion rot = new Quaternion();
         rot.SetLookRotation(direction, new Vector3( 0, 0, 1));

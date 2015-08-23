@@ -13,8 +13,12 @@ public class Beast : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter2D (Collider2D other) {
+	void OnTriggerEnter2D (Collider2D other)
+    {
 		GoodShip ship = other.GetComponent<GoodShip> ();
-		ship.Explode ();
+        if (ship)
+        {
+            ship.Explode();
+        }
 	}
 }
