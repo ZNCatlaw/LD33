@@ -3,9 +3,12 @@ using System.Collections;
 
 public class LinearAttackPattern : MonoBehaviour {
 
-	public float m_shotPeriod;
-	public float m_shotDelay;
+	public float m_salvoPeriod;
+	public float m_salvo_size;
+
+	public float m_bullet_frequency;
 	public float m_bullet_speed;
+
 
 	[HideInInspector]
 	public ProjectileManager m_projectileManager;
@@ -13,7 +16,21 @@ public class LinearAttackPattern : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("Shoot", m_shotDelay, m_shotPeriod);
+		InvokeRepeating("StartShooting", 0, m_salvoPeriod); 
+	}
+
+	void StartShooting () {
+		StartCoroutine (Shooting ());
+	}
+
+	IEnumerator Shooting () {
+		int count = 0;
+
+		while(count <= m_salvo_size) { 
+			count++;
+			yield return new WaitForSeconds(Random.Range(m_bullet_frequency - 0.1f, m_bullet_frequency + 0.1f));
+			Shoot(); 
+		} 
 	}
 
 	void Shoot () {
