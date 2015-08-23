@@ -14,12 +14,12 @@ public class Player : MonoBehaviour
         m_Eyes = new Eye[2];
         GameObject leftEye = Instantiate(m_EyePrefab, transform.position, transform.rotation) as GameObject;
         leftEye.transform.parent = transform;
-        leftEye.transform.Translate( new Vector2(-1, 0));
+        leftEye.transform.Translate( new Vector2(-1.25f, 2));
         m_Eyes[0] = leftEye.GetComponent<Eye>();
 
         GameObject rightEye = Instantiate(m_EyePrefab, transform.position, transform.rotation) as GameObject;
         rightEye.transform.parent = transform;
-        rightEye.transform.Translate(new Vector2(1, 0));
+        rightEye.transform.Translate(new Vector2(1.25f, 2));
         m_Eyes[1] = rightEye.GetComponent<Eye>();
 
         m_Game = FindObjectOfType<Game>();
@@ -31,15 +31,13 @@ public class Player : MonoBehaviour
         m_Eyes[0].SetInput(Input.GetAxis("LeftHorizontal"), Input.GetAxis("LeftVertical"));
         m_Eyes[1].SetInput(Input.GetAxis("RightHorizontal"), Input.GetAxis("RightVertical"));
 
-        if (Input.GetAxis("LeftFire") > 0.1f)
+        if (Input.GetAxis("LeftFire") > 0.1f && m_Eyes[0].m_LookDirection.magnitude > 0.1f)
         {
-            ProjectileManager projectileManager = m_Game.GetComponent<ProjectileManager>();
-            projectileManager.AddLaser(m_Eyes[0].transform.position, m_Eyes[0].m_LookDirection );
+            m_Eyes[0].Fire();
         }
         if (Input.GetAxis("RightFire") > 0.1f)
         {
-            ProjectileManager projectileManager = m_Game.GetComponent<ProjectileManager>();
-            projectileManager.AddLaser(m_Eyes[1].transform.position, m_Eyes[1].m_LookDirection );
+            m_Eyes[1].Fire();
         }
     }
 }

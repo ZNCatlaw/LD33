@@ -35,7 +35,7 @@ public class LinearAttackPattern : MonoBehaviour {
 
 	void Shoot () {
 		// request a bullet with my position towards the target
-		m_projectileManager.AddLaser (this.transform.position, this.GetTarget().normalized, this.m_bullet_speed);
+		m_projectileManager.AddBullet(this.transform.position, this.GetTarget().normalized, this.m_bullet_speed);
 	}
 
 	// returns a point directly ahead of the ship
