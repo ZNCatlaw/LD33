@@ -10,7 +10,6 @@ public class Game : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-		Debug.Log ("HELLO");
         m_playerManager = GetComponent<PlayerManager>();
         m_projectileManager = GetComponent<ProjectileManager>();
         m_shipManager = GetComponent<ShipManager>();

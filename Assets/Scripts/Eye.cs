@@ -5,6 +5,15 @@ public class Eye : MonoBehaviour
 {
     public Vector2 m_LookDirection;
     public GameObject m_LaserPrefab;
+	public float closeLidDelay;
+
+	public bool isClosed {
+		get { return colorLerp.isGreyscale; }
+	}
+
+	private ColorLerp colorLerp;
+	private GameObject eyeClosed;
+
     GameObject m_Laser;
     float m_LaserIntensity;
 
@@ -21,6 +30,7 @@ public class Eye : MonoBehaviour
         eyeOffset.y = vertical * 0.10f;
         transform.GetChild(0).transform.localPosition = eyeOffset;
     }
+
     public void Fire()
     {
         Vector2 start = transform.GetChild(0).transform.position;
@@ -50,12 +60,36 @@ public class Eye : MonoBehaviour
         m_LaserIntensity = 1.0f;
     }
 
+	private void OpenLid () {
+		eyeClosed.GetComponent<SpriteRenderer> ().enabled = false;
+	}
+
+	private void _CloseLid () {
+		eyeClosed.GetComponent<SpriteRenderer> ().enabled = true;
+	}
+
+	private void CloseLid () {
+		Invoke ("_CloseLid", this.closeLidDelay);
+	}
+
+	public void Open () {
+		this.OpenLid ();
+		this.colorLerp.ToFullColor ();
+	}
+
+	public void Close () {
+		this.colorLerp.ToGreyscale (this.CloseLid);
+	}
+
     // Use this for initialization
     void Start ()
     {
         m_Laser = Instantiate(m_LaserPrefab, transform.position, transform.rotation) as GameObject;
         m_Laser.transform.parent = transform;
         m_Laser.name = "EyeLaser";
+
+		eyeClosed = this.transform.Find ("EyeClosed").gameObject;
+		colorLerp = this.GetComponent<ColorLerp> ();
     }
 
     // Update is called once per frame
