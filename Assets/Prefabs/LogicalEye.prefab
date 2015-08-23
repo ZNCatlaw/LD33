@@ -39,13 +39,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0480933e5eb85ce44b071f9ee8a7dcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TargetEye: {fileID: 0}
+  m_PlayerManager: {fileID: 0}
+  m_Colour: 
+  m_Horizontal: 
+  m_Vertical: 
+  m_Trigger: 
+  m_IdleTimeout: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IdleTimeout
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 194984}

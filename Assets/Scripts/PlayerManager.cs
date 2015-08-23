@@ -9,8 +9,9 @@ public class PlayerManager : MonoBehaviour
     GameObject m_EyePool;
     GameObject m_LogicalEyes;
 
-    Vector2[] m_Positions = { new Vector2(-3, 2), new Vector2(3, 2), new Vector2(-3, 0), new Vector2(3, 0)};
+    Vector2[] m_Positions = { new Vector2(-3, 2), new Vector2(3, 2), new Vector2(-3, 0.5f), new Vector2(3, 0.5f)};
     string[] m_Hand = { "_Left", "_Right" };
+    string[] m_Colors = { "Blue", "Green", "Purple", "Red", "Yellow" };
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class PlayerManager : MonoBehaviour
             logicalEye.m_Vertical = "" + i / 2 + m_Hand[i % 2] + "Vertical";
             logicalEye.m_Trigger = "" + i / 2 + m_Hand[i % 2] + "Fire";
             logicalEye.name = "LogicalEye" + i;
+            logicalEye.m_Colour = m_Colors[i / 2];
         }
     }
 

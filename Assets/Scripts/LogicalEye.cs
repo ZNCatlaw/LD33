@@ -6,11 +6,12 @@ public class LogicalEye : MonoBehaviour
     public Eye m_TargetEye;
     public PlayerManager m_PlayerManager;
 
-    public Color m_Colour;
+    public string m_Colour;
     public string m_Horizontal;
     public string m_Vertical;
     public string m_Trigger;
-    public float m_IdleTimeoutRemaining;
+    float m_IdleTimeoutRemaining;
+    public float m_IdleTimeout;
 
     // Use this for initialization
     void Start ()
@@ -28,7 +29,7 @@ public class LogicalEye : MonoBehaviour
         //Check if the player is idle
         if (vertical != 0 || trigger)
         {
-            m_IdleTimeoutRemaining = 5.0f;
+            m_IdleTimeoutRemaining = m_IdleTimeout;
         }
         else
         {
@@ -38,8 +39,7 @@ public class LogicalEye : MonoBehaviour
         if (m_TargetEye && m_IdleTimeoutRemaining <= 0)
         {
             //The player is idle, close and release the eye
-//m_TargetEye.SetColor("colour name");  grey
-//            m_TargetEye.Close();
+            m_TargetEye.Close();
             m_PlayerManager.ReturnEye( m_TargetEye );
             m_TargetEye = null;
         }
@@ -48,8 +48,8 @@ public class LogicalEye : MonoBehaviour
             //The player is not idle, find an eye to use
             m_TargetEye = m_PlayerManager.GetEye();
             m_TargetEye.transform.parent = transform;
-//m_TargetEye.SetColor(m_Colour);
-//m_TargetEye.Open();
+            m_TargetEye.SetColor(m_Colour);
+            m_TargetEye.Open();
         }
 
         if (m_TargetEye)
