@@ -16,7 +16,9 @@ public class Eye : MonoBehaviour
         m_LookDirection = new Vector2(horizontal, vertical);
         m_LookDirection.Normalize();
 
-        Vector3 eyeOffset = new Vector3(horizontal * 0.3f, vertical * 0.10f, -1);
+        Vector3 eyeOffset = transform.GetChild(0).transform.localPosition;
+        eyeOffset.x = horizontal * 0.3f;
+        eyeOffset.y = vertical * 0.10f;
         transform.GetChild(0).transform.localPosition = eyeOffset;
     }
     public void Fire()
