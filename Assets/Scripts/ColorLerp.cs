@@ -43,6 +43,7 @@ public class ColorLerp : MonoBehaviour {
 	}
 
 	public void ToGreyscale (Callback callback) {	
+
 		if (toFullColor != null) {
 			StopCoroutine(toFullColor);
 
