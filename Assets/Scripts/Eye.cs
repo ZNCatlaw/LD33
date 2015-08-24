@@ -6,10 +6,9 @@ public class Eye : MonoBehaviour
     public Vector2 m_LookDirection;
     public GameObject m_LaserPrefab;
 	public float closeLidDelay;
-	
-	public bool isClosed {
-		get { return colorLerp.isGreyscale; }
-	}
+
+	public bool isClosing = false;
+	public bool isClosed = true;
 
 	public delegate void OnClose ();
 	private OnClose onLidDidClose;
@@ -73,32 +72,17 @@ public class Eye : MonoBehaviour
 	public void SetColor (string colorName) {
 		this.GetComponent<SpriteRenderer>().sprite = this.transform.Find ("EyeOpening" + colorName).gameObject.GetComponent<SpriteRenderer>().sprite;
 	}
-
-	private void OpenLid () {
-		eyeClosed.GetComponent<SpriteRenderer> ().enabled = false;
-	}
-
-	private void _CloseLid () {
-		if (this.onLidDidClose != null) {
-			this.onLidDidClose();
-			this.onLidDidClose = null;
-		}
-
-		eyeClosed.GetComponent<SpriteRenderer> ().enabled = true;
-	}
-
-	private void CloseLid () {
-		Invoke ("_CloseLid", this.closeLidDelay);
-	}
-
+	
 	public void Open () {
-		this.OpenLid ();
+		this.isClosed = false;
+		this.isClosing = false;
+		eyeClosed.GetComponent<SpriteRenderer> ().enabled = false;
 		this.colorLerp.ToFullColor ();
 	}
 
-	public void Close (OnClose callback) {
-		this.onLidDidClose = callback;
-		this.colorLerp.ToGreyscale (this.CloseLid);
+	public void Close () {
+		this.isClosing = true;
+		this.colorLerp.ToGreyscale ();
 	}
 
     // Use this for initialization
@@ -115,7 +99,13 @@ public class Eye : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Update the laser intensity
+		if (this.isClosing && colorLerp.isDone) {
+			this.isClosing = false;
+			this.isClosed = true;
+			eyeClosed.GetComponent<SpriteRenderer> ().enabled = true;
+		}
+
+		//Update the laser intensity
         m_LaserIntensity = Mathf.Clamp(m_LaserIntensity - 4.0f * Time.deltaTime, 0, 1);
         Color color = m_Laser.GetComponent<MeshRenderer>().material.GetColor("_Color");
         color.a = m_LaserIntensity;
