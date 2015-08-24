@@ -28,7 +28,8 @@ public class Game : MonoBehaviour
 
 			m_spawner.enabled = false;
 			GameObject.Find("Background").GetComponent<BackgroundManager>().paused = true;
-			gameOver = true;
+            StartCoroutine(Utils.Sound.FadeAudio(GetComponent<AudioSource>(), 2.0f, Utils.Sound.Fade.Out));
+            gameOver = true;
 		}
 	}
 }
