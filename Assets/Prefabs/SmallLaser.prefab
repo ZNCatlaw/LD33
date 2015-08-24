@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Velocity: {x: 0, y: 0, z: 0}
   bulletExplosion: {fileID: 196982, guid: dffda7579f58b4f5e84322bd03133ef4, type: 2}
+  cosmicRageDamage: 1
 --- !u!212 &21200268
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -191,6 +192,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Radius
       value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cosmicRageDamage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

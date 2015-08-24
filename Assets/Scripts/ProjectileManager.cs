@@ -26,16 +26,16 @@ public class ProjectileManager : MonoBehaviour
         }
     }
 
-    public void AddBullet( Vector3 position, Vector3 direction )
+    public void AddBullet(GameObject bulletType, Vector3 position, Vector3 direction )
     {
-		AddBullet(position, direction, 10.0f);
+		AddBullet(bulletType, position, direction, 10.0f);
     }
 
-	public void AddBullet( Vector3 position, Vector3 direction, float bullet_speed )
+	public void AddBullet(GameObject bulletType, Vector3 position, Vector3 direction, float bullet_speed )
 	{
-		GameObject laser = Instantiate(m_LaserPrefab, position, Quaternion.identity) as GameObject;
+		GameObject laser = Instantiate(bulletType, position, Quaternion.identity) as GameObject;
 		laser.transform.parent = m_Projectiles.transform;
-		laser.name = "SmallLaser";
+		laser.name = bulletType.name;
 		
 		Projectile projectile = laser.GetComponent<Projectile>();
 		projectile.m_Velocity = direction * bullet_speed;

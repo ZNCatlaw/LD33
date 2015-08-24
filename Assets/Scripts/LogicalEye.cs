@@ -50,7 +50,7 @@ public class LogicalEye : MonoBehaviour
     {
         float horizontal = Input.GetAxis(m_Horizontal);
         float vertical = Input.GetAxis(m_Vertical);
-        bool trigger = (Input.GetAxis(m_Trigger) > 0.1f || Input.GetButton(m_AltTrigger) == true);
+        bool trigger = (Input.GetAxis(m_Trigger) > 0.1f || Input.GetButton(m_AltTrigger));
 
         //Check if the player is idle
         if (vertical != 0 || trigger)

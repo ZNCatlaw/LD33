@@ -25,7 +25,7 @@ public class GoodShip : MonoBehaviour {
 	}
 	
 	public void Explode () {
-		GameObject explosion = Instantiate (shipExplosion, this.transform.position, Quaternion.identity) as GameObject;
+		Instantiate (shipExplosion, this.transform.position, Quaternion.identity);
 
 		DestroyObject (gameObject);
 	}
@@ -33,15 +33,15 @@ public class GoodShip : MonoBehaviour {
     void OnTriggerStay2D(Collider2D collider)
     {
         GameObject other = collider.gameObject;
-        if (other.name == "EyeLaserLine")
-        {
-            m_Health -= 10.0f * Time.deltaTime;
+        if (other.name == "EyeLaserLine") {
+			m_Health -= 10.0f * Time.deltaTime;
 
-            if ( m_Health <=0 )
-            {
-                Explode();
-            }
-        }
+			if (m_Health <= 0) {
+				Explode ();
+			}
+		} else if (other.name == "BeastLaser") {
+			Explode ();
+		}
     }
 
 }

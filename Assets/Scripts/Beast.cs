@@ -5,18 +5,27 @@ public class Beast : MonoBehaviour {
 
 	public float damageStep;
 	public float creep;
+	public int m_maxCosmicRage;
+	
+	[HideInInspector] public bool isDead = false;
+	[HideInInspector] public bool isEnraged = false;
 
-	public bool isDead = false;
-
-	private int cosmic_rage = 0;
+	private float m_cosmicRage = 0;
 	private int damage = 0;
 	private float startingPosition;
 	private float currentPosition;
+	private Color hale = Color.white;
+	private Color hot = Color.red;
+	
+	private SpriteRenderer spriteRenderer;
 
 	// Use this for initialization
 	void Start () {
 		startingPosition = this.transform.position.y;
 		currentPosition = startingPosition;
+
+		spriteRenderer = this.GetComponent<SpriteRenderer> ();
+
 	}
 
 	void CreepForward () {
@@ -42,10 +51,24 @@ public class Beast : MonoBehaviour {
 		}
 
 		this.CreepForward ();
+
+		// gradually regenerate rage
+		if (m_cosmicRage > 0) {
+			m_cosmicRage -= Time.deltaTime;
+	
+		}
+
+		// reset the cosmic rage and DESTROY WORLDS
+		if (m_cosmicRage > m_maxCosmicRage) {
+			m_cosmicRage = 0;
+			this.isEnraged = true;
+		}
+
+		spriteRenderer.color = Color.Lerp(this.hale, this.hot, Mathf.Lerp(0, 1, (m_cosmicRage/m_maxCosmicRage)));
 	}
 
-	void OnTriggerEnter2D (Collider2D collider) {
-		Debug.Log ("yes");
+	void OnTriggerEnter2D (Collider2D collider)
+    {
 		GameObject other = collider.gameObject;
 		if (other.name == "ShipPuma") {
 
@@ -59,7 +82,7 @@ public class Beast : MonoBehaviour {
 			Projectile projectile = other.GetComponent<Projectile> ();
 			projectile.Explode ();
 
-			this.cosmic_rage += projectile.cosmic_rage;
+			this.m_cosmicRage += projectile.cosmicRageDamage;
 		}
 	}
 }
