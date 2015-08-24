@@ -44,7 +44,8 @@ public class PlayerManager : MonoBehaviour
             Vector3 position = RandomEyePosition();// new Vector3(Random.Range(-3, 3), Random.Range(0.5f, 2), 0);
             GameObject eye = Instantiate(m_EyePrefab, position, transform.rotation) as GameObject;
             eye.transform.parent = m_EyePool.transform;
-			eye.GetComponent<LinearAttackPattern>().m_projectileManager = projectilManager;
+			eye.GetComponent<EnragedAttackPattern>().m_projectileManager = projectilManager;
+			eye.GetComponent<Eye>().beast = this.beast;
             eye.name = "Eye" + i;
         }
 

@@ -15,13 +15,17 @@ public class Eye : MonoBehaviour
 
 	private ColorLerp colorLerp;
 	private GameObject eyeClosed;
+	private EnragedAttackPattern attackPattern;
+
 
     GameObject m_Laser;
     float m_LaserIntensity;
 
-    public string m_Horizontal;
-    public string m_Vertical;
-    public string m_Trigger;
+	[HideInInspector] public Beast beast;
+
+	[HideInInspector] public string m_Horizontal;
+	[HideInInspector] public string m_Vertical;
+	[HideInInspector] public string m_Trigger;
 
     //[0..1], [0..1] (I think? or maybe [0..1) ? )
     public void SetInput(float horizontal, float vertical)
@@ -99,6 +103,10 @@ public class Eye : MonoBehaviour
 
 		eyeClosed = this.transform.Find ("EyeClosed").gameObject;
 		colorLerp = this.GetComponent<ColorLerp> ();
+
+		attackPattern = this.GetComponent<EnragedAttackPattern> ();
+		Debug.Log (attackPattern);
+		attackPattern.enabled = false;
     }
 
     // Update is called once per frame
@@ -109,6 +117,10 @@ public class Eye : MonoBehaviour
 			this.isClosing = false;
 			this.isClosed = true;
 			eyeClosed.GetComponent<SpriteRenderer>().enabled = true;
+		}
+
+		if (this.beast.isEnraged) {
+			// this.attackPattern.enabled = true;
 		}
 
         //Update the laser intensity

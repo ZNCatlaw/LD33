@@ -7,7 +7,8 @@ public class Beast : MonoBehaviour {
 	public float creep;
 	public int m_maxCosmicRage;
 	
-	public bool isDead = false;
+	[HideInInspector] public bool isDead = false;
+	[HideInInspector] public bool isEnraged = false;
 
 	private float m_cosmicRage = 0;
 	private int damage = 0;
@@ -60,6 +61,7 @@ public class Beast : MonoBehaviour {
 		// reset the cosmic rage and DESTROY WORLDS
 		if (m_cosmicRage > m_maxCosmicRage) {
 			m_cosmicRage = 0;
+			this.isEnraged = true;
 		}
 
 		spriteRenderer.color = Color.Lerp(this.hale, this.hot, Mathf.Lerp(0, 1, (m_cosmicRage/m_maxCosmicRage)));
