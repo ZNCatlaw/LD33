@@ -33,7 +33,7 @@ public class GoodShip : MonoBehaviour {
     void OnTriggerStay2D(Collider2D collider)
     {
         GameObject other = collider.gameObject;
-        if (other.name == "EyeLaser")
+        if (other.name == "EyeLaserLine")
         {
             m_Health -= 10.0f * Time.deltaTime;
 

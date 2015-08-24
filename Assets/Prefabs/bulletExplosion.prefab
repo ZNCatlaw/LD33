@@ -14,7 +14,7 @@ GameObject:
   - 95: {fileID: 9502928}
   - 114: {fileID: 11495810}
   - 82: {fileID: 8271084}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: bulletExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,6 +273,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0bcfdbe4d8b387e49b586d4e3ca654de, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196982}

@@ -45,7 +45,6 @@ GameObject:
   - 114: {fileID: 11445154}
   - 50: {fileID: 5063054}
   - 58: {fileID: 5846804}
-  - 114: {fileID: 11475596}
   m_Layer: 14
   m_Name: Eye
   m_TagString: Untagged
@@ -352,24 +351,6 @@ MonoBehaviour:
   material1: {fileID: 2100000, guid: ddcde591e544841b0ac9abb00efc1e59, type: 2}
   material2: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
   duration: 1
---- !u!114 &11475596
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 115802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 815701f25a55845138984bdc952e2d45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_salvoPeriod: 2
-  m_salvo_size: 3
-  m_bullet_frequency: .200000003
-  m_bullet_speed: 14
-  m_bullet_y_direction: 1
-  bulletType: {fileID: 171000, guid: 9467e01af04e4416fb3b5e5455d56118, type: 2}
-  m_projectileManager: {fileID: 0}
 --- !u!114 &11499376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -781,28 +762,8 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: m_salvoPeriod
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_salvo_size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_bullet_frequency
-      value: .200000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_bullet_speed
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: bulletType
-      value: 
-      objectReference: {fileID: 171000, guid: 9467e01af04e4416fb3b5e5455d56118, type: 2}
-    - target: {fileID: 0}
-      propertyPath: m_bullet_y_direction
-      value: 1
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
