@@ -6,79 +6,50 @@ public class ColorLerp : MonoBehaviour {
 	public Material material2;
 	public float duration = 3.0F;
 
-	private IEnumerator toGreyscale;
-	private bool toGreyscaleIsRunning = false;
-	private IEnumerator toFullColor;
-	private bool toFullColorIsRunning = false;
+	private float from = 0;
+	private float to = 1;
+	private float current = 0;
+	private float time = 0;
 
-	public delegate void Callback ();
+	private SpriteRenderer rend;
 
-	private bool _isGreyscale = true;
-	public bool isGreyscale {
-		get { return _isGreyscale; }
+	private bool _isDone = true;
+	public bool isDone {
+		get { return _isDone; }
 	}
-
-	private bool _isFullColor = false;
-	public bool isFullColor {
-		get { return _isFullColor; }
-	}
-
+	
 	public void ToFullColor () {
-		if (toGreyscale != null) {
-			StopCoroutine(toGreyscale);
-		}
-
-		if (toFullColorIsRunning == false) {
-			toFullColorIsRunning = true;
-
-			toFullColor = Lerping (0, 1);
-			StartCoroutine (toFullColor);
-		}
-
+		this.LerpTo (1);
 	}
 
-	public void ToGreyscale (Callback callback) {	
-		if (toFullColor != null) {
-			StopCoroutine(toFullColor);
-		}
-
-		if (toGreyscaleIsRunning == false) {
-			toGreyscaleIsRunning = true;
-
-			toGreyscale = Lerping (1, 0, callback);
-			StartCoroutine (toGreyscale);	
-		}
-
+	public void ToGreyscale () {	
+		this.LerpTo (0);
 	}
 
-	IEnumerator Lerping (float from, float to) {
-		return this.Lerping (from, to, null);
+	private void LerpTo(float value) {
+		this.from = current;
+		this.to = value;
+		this.time = 0;
+		this._isDone = false;
 	}
 
-	IEnumerator Lerping (float from, float to, Callback callback) {
-		SpriteRenderer rend = GetComponent<SpriteRenderer> ();
+	void Start () {
+		rend = GetComponent<SpriteRenderer> ();
+	}
+	
+	void Update () {
 		float lerp ;
-		float time = 0;
 
-		do {
-			lerp = Mathf.SmoothStep(from, to, time/duration);
+		if (this._isDone == false) {
+			lerp = Mathf.SmoothStep(this.from, this.to, time/duration);
 			rend.material.Lerp(material1, material2, lerp);
 			time += Time.deltaTime;
-			yield return null;
-		} while (lerp != to);
 
-		// we just finished one of the coroutines
-		if (from > to) {
-			toGreyscaleIsRunning = false;
-			_isGreyscale = true;
-			_isFullColor = false;
-		} else {
-			toFullColorIsRunning = false;
-			_isFullColor = true;
-			_isGreyscale = false;
+			this.current = lerp;
+			
+			if (lerp == to) {
+				this._isDone = true;
+			}
 		}
-
-		if (callback != null) { callback(); }
 	}
-
 }

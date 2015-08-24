@@ -3,6 +3,7 @@ using System.Collections;
 
 public class LogicalEye : MonoBehaviour
 {
+	private bool m_EyeClosing;
     public Eye m_TargetEye;
     public PlayerManager m_PlayerManager;
 
@@ -18,7 +19,7 @@ public class LogicalEye : MonoBehaviour
     {
         m_IdleTimeoutRemaining = 0;
     }
-
+	
     // Update is called once per frame
     void Update()
     {
@@ -36,21 +37,28 @@ public class LogicalEye : MonoBehaviour
             m_IdleTimeoutRemaining -= Time.deltaTime;
         }
 
-        if (m_TargetEye && m_IdleTimeoutRemaining <= 0)
+		if(!m_TargetEye && m_IdleTimeoutRemaining > 0.0f)        
+		{
+			// OPEN The player is not idle, find an eye to use
+			m_TargetEye = m_PlayerManager.GetEye();
+			m_TargetEye.transform.parent = transform;
+			m_TargetEye.SetColor(m_Colour);
+			m_TargetEye.Open();
+		} else if (m_TargetEye && !m_TargetEye.isClosing && m_IdleTimeoutRemaining <= 0)
         {
-            //The player is idle, close and release the eye
+            // START CLOSING The player is idle, close and release the eye
             m_TargetEye.Close();
-            m_PlayerManager.ReturnEye( m_TargetEye );
-            m_TargetEye = null;
-        }
-        else if( !m_TargetEye && m_IdleTimeoutRemaining > 0.0f)
-        {
-            //The player is not idle, find an eye to use
-            m_TargetEye = m_PlayerManager.GetEye();
-            m_TargetEye.transform.parent = transform;
-            m_TargetEye.SetColor(m_Colour);
-            m_TargetEye.Open();
-        }
+		} else if (m_TargetEye && m_TargetEye.isClosing && m_IdleTimeoutRemaining > 0.0f) 
+		{
+			// INTERRUPT CLOSING if the eye is closing and the player provides input, cancel the close
+			m_TargetEye.SetColor(m_Colour);
+			m_TargetEye.Open();
+		} else if (m_TargetEye && m_TargetEye.isClosed) 
+		{
+			// REMOVE EYE if the eye is finished closing, clean it up
+			m_PlayerManager.ReturnEye( m_TargetEye );
+			m_TargetEye = null;
+		} 
 
         if (m_TargetEye)
         {
