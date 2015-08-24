@@ -25,7 +25,8 @@ public class GoodShip : MonoBehaviour {
 	}
 	
 	public void Explode () {
-		Instantiate (shipExplosion, this.transform.position, Quaternion.identity);
+		GameObject explosion = Instantiate (shipExplosion, this.transform.position, Quaternion.identity) as GameObject;
+		explosion.name = "ShipExplosion";
 
 		DestroyObject (gameObject);
 	}
@@ -40,6 +41,8 @@ public class GoodShip : MonoBehaviour {
 				Explode ();
 			}
 		} else if (other.name == "BeastLaser") {
+			Explode ();
+		} else if (other.name == "ShipExplosion") {
 			Explode ();
 		}
     }
