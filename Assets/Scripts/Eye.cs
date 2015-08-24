@@ -41,8 +41,8 @@ public class Eye : MonoBehaviour
     {
         if (m_LookDirection.magnitude > 0.1f)
         {
-            Vector2 start = transform.GetChild(0).transform.position;
-            Vector2 end = start + m_LookDirection * 25.0f;
+            Vector2 start = m_Laser.transform.position;// transform.GetChild(0).transform.position;
+            Vector2 end = start + (m_LookDirection * 25.0f);
 
             RaycastHit2D rayHit = Physics2D.Raycast(start,
                 m_LookDirection,
@@ -55,33 +55,29 @@ public class Eye : MonoBehaviour
             }
 
             Vector2 delta = end - start;
-            float distance = delta.magnitude + 1.0f;
+            float distance = delta.magnitude + 0.5f;
 
+            GameObject beam = m_Laser.transform.GetChild(0).gameObject;
             if (delta.magnitude > 0.1f)
             {
                 float angle = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
-                Quaternion q = Quaternion.AngleAxis(angle + 90.0f, Vector3.forward);
+                Quaternion q = Quaternion.AngleAxis(angle - 90.0f, Vector3.forward);
                 m_Laser.transform.rotation = q;// Quaternion.Slerp(m_Eyes[0].m_Laser.transform.rotation, q, Time.deltaTime * 5.0f );
-                m_Laser.transform.localScale = new Vector3(0.25f, distance, 1);// 1, distance, 1);
-                Vector3 temp = m_Laser.transform.rotation * new Vector3(0, distance * (-0.5f), -1.0f);
-                m_Laser.transform.localPosition = temp;
             }
-            else
-            {
-                m_Laser.transform.localScale = new Vector3(0.25f, 0, 1);// 1, distance, 1);
-                Vector3 temp = new Vector3(0, 0, -1.0f);
-                m_Laser.transform.localPosition = temp;
-            }
+            beam.transform.localScale = new Vector3(1.0f, distance / 0.55f, 1.0f);
 
             m_LaserIntensity = 1.0f;
         }
     }
 
-	public void SetColor (string colorName) {
+	public void SetColor (string colorName)
+    {
 		this.GetComponent<SpriteRenderer>().sprite = this.transform.Find ("EyeOpening" + colorName).gameObject.GetComponent<SpriteRenderer>().sprite;
-	}
-	
-	public void Open () {
+        m_Laser.GetComponent<Animator>().Play("EyeLaser" + colorName);
+    }
+
+    public void Open ()
+    {
 		this.isClosed = false;
 		this.isClosing = false;
 		eyeClosed.GetComponent<SpriteRenderer> ().enabled = false;
@@ -96,8 +92,9 @@ public class Eye : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        m_Laser = Instantiate(m_LaserPrefab, transform.position, transform.rotation) as GameObject;
-        m_Laser.transform.parent = transform;
+        m_Laser = Instantiate(m_LaserPrefab, Vector3.zero, transform.rotation) as GameObject;
+        m_Laser.transform.parent = transform.GetChild(0);
+        m_Laser.transform.localPosition = new Vector3(0, 0, -1.0f);
         m_Laser.name = "EyeLaser";
 
 		eyeClosed = this.transform.Find ("EyeClosed").gameObject;
@@ -107,17 +104,20 @@ public class Eye : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (this.isClosing && colorLerp.isDone) {
+		if (this.isClosing && colorLerp.isDone)
+        {
 			this.isClosing = false;
 			this.isClosed = true;
-			eyeClosed.GetComponent<SpriteRenderer> ().enabled = true;
+			eyeClosed.GetComponent<SpriteRenderer>().enabled = true;
 		}
 
-		//Update the laser intensity
+        //Update the laser intensity
+        GameObject beam = m_Laser.transform.GetChild(0).gameObject;
+        GameObject blast = m_Laser.transform.GetChild(1).gameObject;
         m_LaserIntensity = Mathf.Clamp(m_LaserIntensity - 4.0f * Time.deltaTime, 0, 1);
-        Color color = m_Laser.GetComponent<MeshRenderer>().material.GetColor("_Color");
-        color.a = m_LaserIntensity;
-        m_Laser.GetComponent<Renderer>().material.SetColor("_Color", color);
+        Color color = new Color(1.0f, 1.0f, 1.0f, m_LaserIntensity);
+        beam.GetComponent<SpriteRenderer>().color = color;
+        blast.GetComponent<SpriteRenderer>().color = color;
 
         //Add a random force to mix things up
         float f = 1000.0f;

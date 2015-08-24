@@ -65,15 +65,18 @@ public class LogicalEye : MonoBehaviour
 			m_TargetEye.transform.parent = transform;
 			m_TargetEye.SetColor(m_Colour);
 			m_TargetEye.Open();
-		} else if (m_TargetEye && !m_TargetEye.isClosing && m_IdleTimeoutRemaining <= 0)
+        }
+        else if (m_TargetEye && !m_TargetEye.isClosing && m_IdleTimeoutRemaining <= 0)
         {
             // START CLOSING The player is idle, close and release the eye
             m_TargetEye.Close();
-		} else if (m_TargetEye && m_TargetEye.isClosing && m_IdleTimeoutRemaining > 0.0f) 
+		}
+        else if (m_TargetEye && m_TargetEye.isClosing && m_IdleTimeoutRemaining > 0.0f) 
 		{
 			// INTERRUPT CLOSING if the eye is closing and the player provides input, cancel the close
 			m_TargetEye.Open();
-		} else if (m_TargetEye && m_TargetEye.isClosed) 
+		}
+        else if (m_TargetEye && m_TargetEye.isClosed) 
 		{
 			// REMOVE EYE if the eye is finished closing, clean it up
 			m_PlayerManager.ReturnEye( m_TargetEye );
