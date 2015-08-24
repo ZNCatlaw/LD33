@@ -176,8 +176,6 @@ public class PlayerManager : MonoBehaviour
                     Vector2 intersection = new Vector2();
                     if (LineIntersection(startA, endA, startB, endB, out intersection))
                     {
-                        Debug.Log("Placing Glyph at " + intersection);
-
                         m_PlayerGlyphs[i].transform.position = intersection;
                         m_PlayerGlyphs[i].SetActive(true);
                     }
