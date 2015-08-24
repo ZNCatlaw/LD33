@@ -99,13 +99,14 @@ public class Eye : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (this.isClosing && colorLerp.isDone) {
-			this.isClosing = false;
-			this.isClosed = true;
-			eyeClosed.GetComponent<SpriteRenderer> ().enabled = true;
-		}
+        if (this.isClosing && colorLerp.isDone)
+        {
+            this.isClosing = false;
+            this.isClosed = true;
+            eyeClosed.GetComponent<SpriteRenderer>().enabled = true;
+        }
 
-		//Update the laser intensity
+        //Update the laser intensity
         m_LaserIntensity = Mathf.Clamp(m_LaserIntensity - 4.0f * Time.deltaTime, 0, 1);
         Color color = m_Laser.GetComponent<MeshRenderer>().material.GetColor("_Color");
         color.a = m_LaserIntensity;
@@ -113,6 +114,9 @@ public class Eye : MonoBehaviour
 
         //Add a random force to mix things up
         float f = 1000.0f;
-        transform.GetComponent<Rigidbody2D>().AddForce( new Vector2(Random.Range( -f, f), Random.Range( -f, f)));
+        transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-f, f), Random.Range(-f, f)));
+
+        //Enable the collider component if the laser is powered enough to do damage
+        m_Laser.GetComponent <Collider2D>().enabled = (m_LaserIntensity > 0.9f);
     }
 }
