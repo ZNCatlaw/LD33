@@ -17,7 +17,7 @@ public class Eye : MonoBehaviour
 	private GameObject eyeClosed;
 
     GameObject m_Laser;
-    float m_LaserIntensity;
+    public float m_LaserIntensity;
 
     public string m_Horizontal;
     public string m_Vertical;
