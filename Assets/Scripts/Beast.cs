@@ -33,6 +33,7 @@ public class Beast : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D collider) {
+		Debug.Log ("yes");
 		GameObject other = collider.gameObject;
 		if (other.name == "ShipPuma") {
 

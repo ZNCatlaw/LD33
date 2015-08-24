@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &133802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 499208}
+  - 61: {fileID: 6108118}
+  - 61: {fileID: 6186926}
+  - 61: {fileID: 6131220}
+  - 61: {fileID: 6103734}
+  m_Layer: 0
+  m_Name: Eye Bound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &176082
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +33,7 @@ GameObject:
   - 212: {fileID: 21224534}
   - 81: {fileID: 8160126}
   - 95: {fileID: 9557322}
+  - 114: {fileID: 11494108}
   m_Layer: 8
   m_Name: Beast
   m_TagString: Untagged
@@ -30,8 +50,21 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 499208}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &499208
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.769298851, y: -.150502443, z: 2.734375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 484716}
   m_RootOrder: 0
 --- !u!50 &5044270
 Rigidbody2D:
@@ -72,6 +105,58 @@ PolygonCollider2D:
       - {x: -6, y: -1.5}
       - {x: 6, y: -1.5}
       - {x: 6, y: 1.5}
+--- !u!61 &6103734
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133802}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 7.32051086, y: -.246957064}
+  serializedVersion: 2
+  m_Size: {x: 1.17639923, y: 6.15081692}
+--- !u!61 &6108118
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133802}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: .689143658, y: -1.8818574}
+  serializedVersion: 2
+  m_Size: {x: 14.9455309, y: 1.14537907}
+--- !u!61 &6131220
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133802}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -5.7241106, y: -.158758879}
+  serializedVersion: 2
+  m_Size: {x: 1.08819914, y: 6.11553764}
+--- !u!61 &6186926
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133802}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: .740871906, y: 2.18733335}
+  serializedVersion: 2
+  m_Size: {x: 14.8295889, y: 1.2822361}
 --- !u!81 &8160126
 AudioListener:
   m_ObjectHideFlags: 1
@@ -109,6 +194,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageStep: .5
   creep: .00100000005
+--- !u!114 &11494108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff853954c0084409baa1f8214f847d05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
 --- !u!212 &21224534
 SpriteRenderer:
   m_ObjectHideFlags: 1
