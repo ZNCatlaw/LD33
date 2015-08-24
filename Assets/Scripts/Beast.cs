@@ -6,10 +6,12 @@ public class Beast : MonoBehaviour {
 	public float damageStep;
 	public float creep;
 	public int m_maxCosmicRage;
-	
+	public float m_calmDownRate;
+
 	[HideInInspector] public bool isDead = false;
 	[HideInInspector] public bool isEnraged = false;
 
+	
 	private float m_cosmicRage = 0;
 	private int damage = 0;
 	private float startingPosition;
@@ -52,16 +54,24 @@ public class Beast : MonoBehaviour {
 
 		this.CreepForward ();
 
-		// gradually regenerate rage
+		// gradually calm down
 		if (m_cosmicRage > 0) {
-			m_cosmicRage -= Time.deltaTime;
-	
+			if (this.isEnraged) {
+				m_cosmicRage -= Time.deltaTime * this.m_calmDownRate * (this.m_maxCosmicRage/10);
+			} else {
+				m_cosmicRage -= Time.deltaTime;
+			}
+
 		}
 
 		// reset the cosmic rage and DESTROY WORLDS
-		if (m_cosmicRage > m_maxCosmicRage) {
-			m_cosmicRage = 0;
+		if (this.isEnraged == false && m_cosmicRage > m_maxCosmicRage) {
 			this.isEnraged = true;
+		}
+
+		// stops raging
+		if (this.isEnraged == true && (m_cosmicRage < 0)) {
+			this.isEnraged = false;
 		}
 
 		spriteRenderer.color = Color.Lerp(this.hale, this.hot, Mathf.Lerp(0, 1, (m_cosmicRage/m_maxCosmicRage)));
@@ -82,7 +92,9 @@ public class Beast : MonoBehaviour {
 			Projectile projectile = other.GetComponent<Projectile> ();
 			projectile.Explode ();
 
-			this.m_cosmicRage += projectile.cosmicRageDamage;
+			if (this.isEnraged == false) {
+				this.m_cosmicRage += projectile.cosmicRageDamage;
+			}
 		}
 	}
 }

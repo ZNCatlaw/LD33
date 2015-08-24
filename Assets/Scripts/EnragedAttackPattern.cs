@@ -16,8 +16,7 @@ public class EnragedAttackPattern : MonoBehaviour {
 	public ProjectileManager m_projectileManager;
 	
 	private AudioSource shootSound;
-	
-	
+
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating("StartShooting", 0.5f, m_salvoPeriod);
@@ -25,7 +24,9 @@ public class EnragedAttackPattern : MonoBehaviour {
 	}
 	
 	void StartShooting () {
-		StartCoroutine (Shooting ());
+		if (this.enabled) {
+			StartCoroutine (Shooting ());
+		}
 	}
 	
 	IEnumerator Shooting () {
@@ -35,24 +36,33 @@ public class EnragedAttackPattern : MonoBehaviour {
 		while(count < m_salvo_size) { 
 			count++;
 			yield return new WaitForSeconds(wait);
-			Shoot(); 
+			Shoot();
 		}
 		if (shootSound != null && !shootSound.isPlaying) shootSound.Play();
 	}
 	
 	void Shoot () {
 		// request a bullet with my position towards the target
-		m_projectileManager.AddBullet(this.bulletType, this.transform.position, this.GetTarget().normalized, this.m_bullet_speed);
+		for (int i = 0; i < 5; i++) {
+			m_projectileManager.AddBullet(this.bulletType, this.transform.position, this.GetTarget(i).normalized, this.m_bullet_speed);
+		}
 	}
-	
+
+	private static float m_arcOffset = Mathf.PI / 8;
+	private static float m_arcStep = (Mathf.PI - (2 * m_arcOffset))/4;
+
 	// returns a point directly ahead of the ship
-	Vector3 GetTarget () {
+	Vector3 GetTarget (int i) {
+		float angle = m_arcOffset + (i * m_arcStep);
+		float x = Mathf.Cos (angle);
+		float y = Mathf.Sin (angle);
+
 		// bottom of the screen
-		Vector2 target = Camera.main.ViewportToWorldPoint(new Vector2(0, m_bullet_y_direction));
+		Vector2 target = Camera.main.ViewportToWorldPoint(new Vector2(x, y));
 		Vector2 position = this.transform.position;
 		
 		// correct so that the ship is pointing straight ahead
-		target.x = position.x;
-		return target - position;
+
+		return target;
 	}
 }

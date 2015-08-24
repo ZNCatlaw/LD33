@@ -105,7 +105,6 @@ public class Eye : MonoBehaviour
 		colorLerp = this.GetComponent<ColorLerp> ();
 
 		attackPattern = this.GetComponent<EnragedAttackPattern> ();
-		Debug.Log (attackPattern);
 		attackPattern.enabled = false;
     }
 
@@ -119,8 +118,10 @@ public class Eye : MonoBehaviour
 			eyeClosed.GetComponent<SpriteRenderer>().enabled = true;
 		}
 
-		if (this.beast.isEnraged) {
-			// this.attackPattern.enabled = true;
+		if (this.beast.isEnraged == true) {
+			this.attackPattern.enabled = true;
+		} else {
+			this.attackPattern.enabled = false;
 		}
 
         //Update the laser intensity
