@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9cdf2ada226b707418227f96848076d4
-timeCreated: 1440398490
+timeCreated: 1440440970
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -19,6 +19,8 @@ TextureImporter:
     21300024: ArcadeEndText_11
     21300026: ArcadeEndText_12
     21300028: ArcadeEndText_13
+    21300030: ArcadeEndText_14
+    21300032: ArcadeEndText_15
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -213,6 +215,26 @@ TextureImporter:
         height: 14
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_14
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 96
+        width: 138
+        height: 30
+      alignment: 9
+      pivot: {x: .5, y: .75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_15
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 62
+        width: 144
+        height: 30
+      alignment: 9
+      pivot: {x: .5, y: .75}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
