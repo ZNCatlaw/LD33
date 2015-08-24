@@ -47,12 +47,16 @@ public class LinearAttackPattern : MonoBehaviour {
 
 	// returns a point directly ahead of the ship
 	Vector3 GetTarget () {
+
 		// bottom of the screen
 		Vector2 target = Camera.main.ViewportToWorldPoint(new Vector2(0, m_bullet_y_direction));
 		Vector2 position = this.transform.position;
 		
 		// correct so that the ship is pointing straight ahead
 		target.x = position.x;
+		// with bit of an angle, for fun
+		target.x += Mathf.Cos (Mathf.PI/32) * Random.Range(-1, 1);
+
 		return target - position;
 	}
 }
