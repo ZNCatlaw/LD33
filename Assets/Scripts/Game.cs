@@ -27,7 +27,8 @@ public class Game : MonoBehaviour
 		if (Input.GetKey(KeyCode.Escape)) { Application.Quit(); }
 
 		if (gameOver == false && m_playerManager.playerDead == true) {
-			Instantiate(this.gameOverScreen);
+			Instantiate(gameOverScreen);
+            gameOverScreen.GetComponent<EndOfGameBehaviour>().setFinalScore(m_playerManager.beast.kills);
 
 			m_spawner.enabled = false;
 			GameObject.Find("Background").GetComponent<BackgroundManager>().paused = true;
