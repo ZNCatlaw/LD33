@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: EyeLaserBlue
+  m_Name: EyeLaserGreen
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -18,12 +18,21 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 2100000, guid: 0e9ab59616d370046bb0c540b2f54caa, type: 2}
+      value: {fileID: 2100000, guid: ec18967d1e4476844b34f759129f1d5a, type: 2}
     - time: .200000003
-      value: {fileID: 2100000, guid: a0387f2ff40c3a249819c28e78b9204a, type: 2}
+      value: {fileID: 2100000, guid: f7009f0bbb4cc3840bbd7a93e4913949, type: 2}
     attribute: m_Materials.Array.data[0]
     path: EyeLaserLine
     classID: 23
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 4de107c85eae883479c18b46e6e6050c, type: 3}
+    - time: .200000003
+      value: {fileID: 21300000, guid: 641056678e863ed4cb81854c6f6cb5d4, type: 3}
+    attribute: m_Sprite
+    path: EyeLaserBlast
+    classID: 212
     script: {fileID: 0}
   m_SampleRate: 5
   m_WrapMode: 0
@@ -38,9 +47,17 @@ AnimationClip:
       classID: 23
       customType: 21
       isPPtrCurve: 1
+    - path: 205501314
+      attribute: 0
+      script: {fileID: 0}
+      classID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 2100000, guid: 0e9ab59616d370046bb0c540b2f54caa, type: 2}
-    - {fileID: 2100000, guid: a0387f2ff40c3a249819c28e78b9204a, type: 2}
+    - {fileID: 2100000, guid: ec18967d1e4476844b34f759129f1d5a, type: 2}
+    - {fileID: 2100000, guid: f7009f0bbb4cc3840bbd7a93e4913949, type: 2}
+    - {fileID: 21300000, guid: 4de107c85eae883479c18b46e6e6050c, type: 3}
+    - {fileID: 21300000, guid: 641056678e863ed4cb81854c6f6cb5d4, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
