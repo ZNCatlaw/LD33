@@ -23,6 +23,9 @@ public class Game : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+		// QUIT on ESCAPE
+		if (Input.GetKey(KeyCode.Escape)) { Application.Quit(); }
+
 		if (gameOver == false && m_playerManager.playerDead == true) {
 			Instantiate(this.gameOverScreen);
 
