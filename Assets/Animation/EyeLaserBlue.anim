@@ -22,7 +22,7 @@ AnimationClip:
     - time: .200000003
       value: {fileID: 2100000, guid: a0387f2ff40c3a249819c28e78b9204a, type: 2}
     attribute: m_Materials.Array.data[0]
-    path: 
+    path: EyeLaserLine
     classID: 23
     script: {fileID: 0}
   m_SampleRate: 5
@@ -32,7 +32,7 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 0
+    - path: 328914655
       attribute: 0
       script: {fileID: 0}
       classID: 23
