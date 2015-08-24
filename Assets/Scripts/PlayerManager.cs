@@ -5,11 +5,14 @@ public class PlayerManager : MonoBehaviour
 {
     public GameObject m_EyePrefab;
     public GameObject m_LogicalEyePrefab;
+    public GameObject m_GlyphPrefab;
 
     GameObject m_EyePool;
     GameObject m_LogicalEyes;
 
-    Vector2[] m_Positions = { new Vector2(-3, 2), new Vector2(3, 2), new Vector2(-3, 0.5f), new Vector2(3, 0.5f)};
+    GameObject[] m_PlayerGlyphs;
+
+    Vector2[] m_Positions = { new Vector2(-3, 2), new Vector2(3, 2), new Vector2(-3, 0.5f), new Vector2(3, 0.5f) };
     string[] m_Colors = { "Blue", "Green", "Purple", "Red", "Yellow" };
 
     Vector3 RandomEyePosition()
@@ -49,12 +52,19 @@ public class PlayerManager : MonoBehaviour
             logicalEye.name = "LogicalEye" + i;
             logicalEye.m_Colour = m_Colors[i / 2];
         }
+
+        m_PlayerGlyphs = new GameObject[4];
+        for (int i = 0; i < 4; i++)
+        {
+            m_PlayerGlyphs[i] = Instantiate(m_GlyphPrefab, Vector3.zero, transform.rotation) as GameObject;
+            m_PlayerGlyphs[i].SetActive(false);
+        }
     }
 
     public Eye GetEye()
     {
         //Pick a random unused eye
-        Transform eye = m_EyePool.transform.GetChild( Random.Range(0, m_EyePool.transform.childCount) );
+        Transform eye = m_EyePool.transform.GetChild(Random.Range(0, m_EyePool.transform.childCount));
 
         //Move it to a random position
         Vector3 position = RandomEyePosition();
@@ -66,12 +76,29 @@ public class PlayerManager : MonoBehaviour
         eye.transform.SetParent(m_EyePool.transform);
     }
 
+    void FindEyePair(int playerNum, out LogicalEye a, out LogicalEye b)
+    {
+        a = null;
+        b = null;
+        for (int i = 0; i < m_LogicalEyes.transform.childCount; i++)
+        {
+            LogicalEye logicalA = m_LogicalEyes.transform.GetChild(i).GetComponent<LogicalEye>();
+            if (logicalA.m_PlayerNum == playerNum && logicalA.m_HandNum == 0)
+            {
+                a = logicalA;
+            }
+            if (logicalA.m_PlayerNum == playerNum && logicalA.m_HandNum == 1)
+            {
+                b = logicalA;
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-
-        //Check that each pair of eyes managed by a single controller have 
-        for(int i=0; i<m_LogicalEyes.transform.childCount; i++)
+        //Check that the left/rightness of eye pairs match the world left/rightness
+        for (int i = 0; i < m_LogicalEyes.transform.childCount; i++)
         {
             LogicalEye logicalA = m_LogicalEyes.transform.GetChild(i).GetComponent<LogicalEye>();
             if (logicalA.m_TargetEye)
@@ -101,6 +128,73 @@ public class PlayerManager : MonoBehaviour
                     }
                 }
             }
+        }
+
+
+        //Search for eye pairs
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                LogicalEye logicalA;
+                LogicalEye logicalB;
+
+                FindEyePair(0, out logicalA, out logicalB);
+                if (logicalA && logicalA.m_TargetEye && logicalB && logicalB.m_TargetEye)
+                {
+                    Vector2 startA = logicalA.m_TargetEye.transform.position;
+                    Vector2 endA = startA + logicalA.m_TargetEye.m_LookDirection * 25.0f; ;
+                    Vector2 startB = logicalB.m_TargetEye.transform.position;
+                    Vector2 endB = startB + logicalB.m_TargetEye.m_LookDirection * 25.0f;
+
+                    Vector2 intersection = new Vector2();
+                    if (LineIntersection(startA, endA, startB, endB, out intersection))
+                    {
+                        Debug.Log("Placing Glyph at " + intersection);
+
+                        m_PlayerGlyphs[i].transform.position = intersection;
+                        m_PlayerGlyphs[i].SetActive(true);
+
+                    }
+                    else
+                    {
+                        m_PlayerGlyphs[i].SetActive(false);
+                    }
+
+                }
+            }
+        }
+
+    }
+
+
+
+    bool LineIntersection(Vector2 ps1, Vector2 pe1, Vector2 ps2, Vector2 pe2, out Vector2 intersection)
+    {
+        // Get A,B,C of first line - points : ps1 to pe1
+        float A1 = pe1.y - ps1.y;
+        float B1 = ps1.x - pe1.x;
+        float C1 = A1 * ps1.x + B1 * ps1.y;
+
+        // Get A,B,C of second line - points : ps2 to pe2
+        float A2 = pe2.y - ps2.y;
+        float B2 = ps2.x - pe2.x;
+        float C2 = A2 * ps2.x + B2 * ps2.y;
+
+        // Get delta and check if the lines are parallel
+        float delta = A1 * B2 - A2 * B1;
+        if (delta < 0.001f)
+        {
+            //Lines are parallel
+            intersection = Vector2.zero;
+            return false;
+        }
+        else
+        {
+            // now return the Vector2 intersection point
+            intersection = new Vector2(
+                (B2 * C1 - B1 * C2) / delta,
+                (A1 * C2 - A2 * C1) / delta);
+            return true;
         }
     }
 }
