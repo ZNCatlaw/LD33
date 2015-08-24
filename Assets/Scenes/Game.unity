@@ -175,6 +175,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 1325147876}
   shakeMagnitude: .100000001
+--- !u!114 &615714482 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11474382, guid: e55f7846f8068c844bf357b2edaf8579,
+    type: 2}
+  m_PrefabInternal: {fileID: 1674394085}
+  m_Script: {fileID: 11500000, guid: e3461cb23275c467fb6a0e7916179ed0, type: 3}
 --- !u!1 &1051315369
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,8 +240,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EyePrefab: {fileID: 115802, guid: e195fc9531a41644496df1ea600780b8, type: 2}
   m_LogicalEyePrefab: {fileID: 194984, guid: ee1693bf09bc97b4aa764c674a07578a, type: 2}
-  beast: {fileID: 615714476}
+  beast: {fileID: 615714482}
   m_GlyphPrefab: {fileID: 105974, guid: 635922bfd4a506b4fbf685b7ced2048d, type: 2}
+  playerDead: 0
 --- !u!114 &1051315373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e202f09d8730e24e8f3e82d860c2759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 108868, guid: e534419089adb2941b8d6a311aadf649, type: 2}
 --- !u!4 &1051315374
 Transform:
   m_ObjectHideFlags: 0
