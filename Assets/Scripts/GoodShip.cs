@@ -6,6 +6,7 @@ public class GoodShip : MonoBehaviour {
 	public GameObject shipExplosion;
     public float m_Health;
 	public int crashDamage;
+	public bool chainExplosions;
 
 	private float m_MaxHealth;
 	private Color hale = Color.white;
@@ -42,7 +43,7 @@ public class GoodShip : MonoBehaviour {
 			}
 		} else if (other.name == "BeastLaser") {
 			Explode ();
-		} else if (other.name == "ShipExplosion") {
+		} else if (this.chainExplosions && other.name == "ShipExplosion") {
 			Explode ();
 		}
     }
