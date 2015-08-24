@@ -59,7 +59,7 @@ public class Eye : MonoBehaviour
             float angle = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle + 90.0f, Vector3.forward);
             m_Laser.transform.rotation = q;// Quaternion.Slerp(m_Eyes[0].m_Laser.transform.rotation, q, Time.deltaTime * 5.0f );
-            m_Laser.transform.localScale = new Vector3(0.25f, distance, 1);// 1, distance, 1);
+            m_Laser.transform.localScale = new Vector3(0.55f, distance, 1);// 1, distance, 1);
             Vector2 temp = m_Laser.transform.rotation * new Vector2(0, distance * (-0.5f));//.localPosition;
             m_Laser.transform.localPosition = temp;//
 
