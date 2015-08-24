@@ -27,7 +27,6 @@ public class GoodShip : MonoBehaviour {
 	public void Explode () {
 		GameObject explosion = Instantiate (shipExplosion, this.transform.position, Quaternion.identity) as GameObject;
 
-		DestroyObject (explosion, Random.Range(0.1f, 0.2f));
 		DestroyObject (gameObject);
 	}
 

@@ -56,14 +56,22 @@ public class Eye : MonoBehaviour
 
             Vector2 delta = end - start;
             float distance = delta.magnitude + 1.0f;
-            //Debug.Log(distance);
 
-            float angle = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
-            Quaternion q = Quaternion.AngleAxis(angle + 90.0f, Vector3.forward);
-            m_Laser.transform.rotation = q;// Quaternion.Slerp(m_Eyes[0].m_Laser.transform.rotation, q, Time.deltaTime * 5.0f );
-            m_Laser.transform.localScale = new Vector3(0.25f, distance, 1);// 1, distance, 1);
-            Vector2 temp = m_Laser.transform.rotation * new Vector2(0, distance * (-0.5f));//.localPosition;
-            m_Laser.transform.localPosition = temp;//
+            if (delta.magnitude > 0.1f)
+            {
+                float angle = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
+                Quaternion q = Quaternion.AngleAxis(angle + 90.0f, Vector3.forward);
+                m_Laser.transform.rotation = q;// Quaternion.Slerp(m_Eyes[0].m_Laser.transform.rotation, q, Time.deltaTime * 5.0f );
+                m_Laser.transform.localScale = new Vector3(0.25f, distance, 1);// 1, distance, 1);
+                Vector3 temp = m_Laser.transform.rotation * new Vector3(0, distance * (-0.5f), -1.0f);
+                m_Laser.transform.localPosition = temp;
+            }
+            else
+            {
+                m_Laser.transform.localScale = new Vector3(0.25f, 0, 1);// 1, distance, 1);
+                Vector3 temp = new Vector3(0, 0, -1.0f);
+                m_Laser.transform.localPosition = temp;
+            }
 
             m_LaserIntensity = 1.0f;
         }
@@ -99,14 +107,13 @@ public class Eye : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.isClosing && colorLerp.isDone)
-        {
-            this.isClosing = false;
-            this.isClosed = true;
-            eyeClosed.GetComponent<SpriteRenderer>().enabled = true;
-        }
+		if (this.isClosing && colorLerp.isDone) {
+			this.isClosing = false;
+			this.isClosed = true;
+			eyeClosed.GetComponent<SpriteRenderer> ().enabled = true;
+		}
 
-        //Update the laser intensity
+		//Update the laser intensity
         m_LaserIntensity = Mathf.Clamp(m_LaserIntensity - 4.0f * Time.deltaTime, 0, 1);
         Color color = m_Laser.GetComponent<MeshRenderer>().material.GetColor("_Color");
         color.a = m_LaserIntensity;
@@ -114,9 +121,6 @@ public class Eye : MonoBehaviour
 
         //Add a random force to mix things up
         float f = 1000.0f;
-        transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-f, f), Random.Range(-f, f)));
-
-        //Enable the collider component if the laser is powered enough to do damage
-        m_Laser.GetComponent <Collider2D>().enabled = (m_LaserIntensity > 0.9f);
+        transform.GetComponent<Rigidbody2D>().AddForce( new Vector2(Random.Range( -f, f), Random.Range( -f, f)));
     }
 }
