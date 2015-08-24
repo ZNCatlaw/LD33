@@ -4,6 +4,7 @@ using System.Collections;
 public class BackgroundDecoration : MonoBehaviour {
 
     public int pixelsPerUnit = 20;
+    public bool pixelSnap = false;
     public GameObject[] decoratorPrefabs;
 
     [HideInInspector]
@@ -22,9 +23,18 @@ public class BackgroundDecoration : MonoBehaviour {
 	void Update ()
     {
         var newPosition = transform.position;
-        newPosition.x = Utils.Math.RoundToPixel(desiredPos.x, pixelsPerUnit);
-        newPosition.y = Utils.Math.RoundToPixel(desiredPos.y, pixelsPerUnit);
-        newPosition.z = Utils.Math.RoundToPixel(desiredPos.z, pixelsPerUnit);
+        if (pixelSnap)
+        {
+            newPosition.x = Utils.Math.RoundToPixel(desiredPos.x, pixelsPerUnit);
+            newPosition.y = Utils.Math.RoundToPixel(desiredPos.y, pixelsPerUnit);
+            newPosition.z = Utils.Math.RoundToPixel(desiredPos.z, pixelsPerUnit);
+        }
+        else
+        {
+            newPosition.x = desiredPos.x;
+            newPosition.y = desiredPos.y;
+            newPosition.z = desiredPos.z;
+        }
         transform.position = newPosition;
 	}
 }

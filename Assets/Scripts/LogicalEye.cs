@@ -14,12 +14,33 @@ public class LogicalEye : MonoBehaviour
     float m_IdleTimeoutRemaining;
     public float m_IdleTimeout;
 
+    public int m_PlayerNum;
+    public int m_HandNum;
+
+
+    string[] m_Hand = { "_Left", "_Right" };
+
     // Use this for initialization
     void Start ()
     {
         m_IdleTimeoutRemaining = 0;
     }
-	
+
+    public void SetHand( int hand)
+    {
+        SetPlayer(m_PlayerNum, hand);
+    }
+
+    public void SetPlayer(int player, int hand)
+    {
+        m_PlayerNum = player;
+        m_HandNum = hand;
+
+        m_Horizontal = "" + player + m_Hand[hand] + "Horizontal";
+        m_Vertical = "" + player + m_Hand[hand] + "Vertical";
+        m_Trigger = "" + player + m_Hand[hand] + "Fire";
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -51,7 +72,6 @@ public class LogicalEye : MonoBehaviour
 		} else if (m_TargetEye && m_TargetEye.isClosing && m_IdleTimeoutRemaining > 0.0f) 
 		{
 			// INTERRUPT CLOSING if the eye is closing and the player provides input, cancel the close
-			m_TargetEye.SetColor(m_Colour);
 			m_TargetEye.Open();
 		} else if (m_TargetEye && m_TargetEye.isClosed) 
 		{

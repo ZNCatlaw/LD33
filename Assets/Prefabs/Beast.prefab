@@ -12,7 +12,8 @@ GameObject:
   - 50: {fileID: 5044270}
   - 114: {fileID: 11474382}
   - 212: {fileID: 21224534}
-  - 95: {fileID: 9518872}
+  - 81: {fileID: 8160126}
+  - 95: {fileID: 9557322}
   m_Layer: 8
   m_Name: Beast
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,7 +72,14 @@ PolygonCollider2D:
       - {x: -6, y: -1.5}
       - {x: 6, y: -1.5}
       - {x: 6, y: 1.5}
---- !u!95 &9518872
+--- !u!81 &8160126
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176082}
+  m_Enabled: 1
+--- !u!95 &9557322
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -170,10 +178,6 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: HP
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
