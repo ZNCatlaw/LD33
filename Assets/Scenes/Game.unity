@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EyePrefab: {fileID: 115802, guid: e195fc9531a41644496df1ea600780b8, type: 2}
   m_LogicalEyePrefab: {fileID: 194984, guid: ee1693bf09bc97b4aa764c674a07578a, type: 2}
+  m_GlyphPrefab: {fileID: 105974, guid: 635922bfd4a506b4fbf685b7ced2048d, type: 2}
 --- !u!114 &1051315373
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -63,14 +63,22 @@ public class Eye : MonoBehaviour
 
             Vector2 delta = end - start;
             float distance = delta.magnitude + 1.0f;
-            //Debug.Log(distance);
 
-            float angle = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
-            Quaternion q = Quaternion.AngleAxis(angle + 90.0f, Vector3.forward);
-            m_Laser.transform.rotation = q;// Quaternion.Slerp(m_Eyes[0].m_Laser.transform.rotation, q, Time.deltaTime * 5.0f );
-            m_Laser.transform.localScale = new Vector3(0.25f, distance, 1);// 1, distance, 1);
-            Vector3 temp = m_Laser.transform.rotation * new Vector3(0, distance * (-0.5f), -1.0f);
-            m_Laser.transform.localPosition = temp;
+            if (delta.magnitude > 0.1f)
+            {
+                float angle = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
+                Quaternion q = Quaternion.AngleAxis(angle + 90.0f, Vector3.forward);
+                m_Laser.transform.rotation = q;// Quaternion.Slerp(m_Eyes[0].m_Laser.transform.rotation, q, Time.deltaTime * 5.0f );
+                m_Laser.transform.localScale = new Vector3(0.25f, distance, 1);// 1, distance, 1);
+                Vector3 temp = m_Laser.transform.rotation * new Vector3(0, distance * (-0.5f), -1.0f);
+                m_Laser.transform.localPosition = temp;
+            }
+            else
+            {
+                m_Laser.transform.localScale = new Vector3(0.25f, 0, 1);// 1, distance, 1);
+                Vector3 temp = new Vector3(0, 0, -1.0f);
+                m_Laser.transform.localPosition = temp;
+            }
 
             m_LaserIntensity = 1.0f;
         }
