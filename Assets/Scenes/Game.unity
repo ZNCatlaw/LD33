@@ -267,7 +267,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1325147878}
   - 124: {fileID: 1325147874}
-  - 81: {fileID: 1325147873}
   - 20: {fileID: 1325147876}
   - 92: {fileID: 1325147875}
   - 114: {fileID: 1325147877}
@@ -278,13 +277,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1325147873
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1325147872}
-  m_Enabled: 1
 --- !u!124 &1325147874
 Behaviour:
   m_ObjectHideFlags: 0

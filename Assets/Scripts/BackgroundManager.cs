@@ -4,6 +4,7 @@ using System.Collections;
 public class BackgroundManager : MonoBehaviour {
 
     public int pixelsPerUnit;
+    public bool pixelSnap = false;
     public GameObject waterPrefab;
     public int waterPoolSize = 32;
     public GameObject cloudPrefab;
@@ -165,8 +166,11 @@ public class BackgroundManager : MonoBehaviour {
 
         var origin = mainCamera.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), 1f));
         origin.x -= 0.4f;
-        origin.x = Utils.Math.RoundToPixel(origin.x, pixelsPerUnit);
-        origin.y = Utils.Math.RoundToPixel(origin.y, pixelsPerUnit);
+        if(pixelSnap)
+        {
+            origin.x = Utils.Math.RoundToPixel(origin.x, pixelsPerUnit);
+            origin.y = Utils.Math.RoundToPixel(origin.y, pixelsPerUnit);
+        }
         origin.z = waterPoolActive.transform.position.z;
         newDec.transform.position = origin;
         logic.desiredPos = origin;
@@ -191,8 +195,11 @@ public class BackgroundManager : MonoBehaviour {
             logic.direction = 1;
         }
         origin.y += cloudYOffset;
-        origin.x = Utils.Math.RoundToPixel(origin.x, pixelsPerUnit);
-        origin.y = Utils.Math.RoundToPixel(origin.y, pixelsPerUnit);
+        if (pixelSnap)
+        {
+            origin.x = Utils.Math.RoundToPixel(origin.x, pixelsPerUnit);
+            origin.y = Utils.Math.RoundToPixel(origin.y, pixelsPerUnit);
+        }
         origin.z = cloudPoolActive.transform.position.z;
         newDec.transform.position = origin;
         logic.desiredPos = origin;
