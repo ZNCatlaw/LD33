@@ -5,6 +5,7 @@ public class GoodShip : MonoBehaviour {
 
 	public GameObject shipExplosion;
     public float m_Health;
+	public int crashDamage;
 
 	// Use this for initialization
 	void Start () {
