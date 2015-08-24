@@ -162,7 +162,6 @@ public class PlayerManager : MonoBehaviour
 
                         m_PlayerGlyphs[i].transform.position = intersection;
                         m_PlayerGlyphs[i].SetActive(true);
-
                     }
                     else
                     {
@@ -174,8 +173,6 @@ public class PlayerManager : MonoBehaviour
         }
 
     }
-
-
 
     bool LineIntersection(Vector2 ps1, Vector2 pe1, Vector2 ps2, Vector2 pe2, out Vector2 intersection)
     {
