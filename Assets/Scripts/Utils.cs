@@ -39,7 +39,6 @@ namespace Utils
             while (t <= duration)
             {
                 audio.volume = easeFunction(start, distance, t, duration);
-                Debug.Log(string.Format("{0} {1}", t, audio.volume));
                 t += Time.deltaTime;
                 yield return null;
             }
