@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
 {
     public Vector3 m_Velocity;
 	public GameObject bulletExplosion;
+	public int cosmic_rage;
 
     // Use this for initialization
     void Start ()

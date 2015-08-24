@@ -5,7 +5,10 @@ public class PlayerManager : MonoBehaviour
 {
     public GameObject m_EyePrefab;
     public GameObject m_LogicalEyePrefab;
+	public Beast beast;
     public GameObject m_GlyphPrefab;
+
+	public bool playerDead = false;
 
     GameObject m_EyePool;
     GameObject m_LogicalEyes;
@@ -25,7 +28,7 @@ public class PlayerManager : MonoBehaviour
     {
         //Create the eyepool and fill it with eyes
         m_EyePool = new GameObject();
-        m_EyePool.transform.SetParent(this.transform);
+        m_EyePool.transform.SetParent(beast.transform);
         m_EyePool.name = "Eye Pool";
 
         m_LogicalEyes = new GameObject();
@@ -97,6 +100,11 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+		if (this.beast.isDead == true) {
+			this.playerDead = true;
+		}
+
         //Check that the left/rightness of eye pairs match the world left/rightness
         for (int i = 0; i < m_LogicalEyes.transform.childCount; i++)
         {

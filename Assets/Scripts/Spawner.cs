@@ -19,6 +19,10 @@ public class Spawner : MonoBehaviour {
 	}
 
 	void Spawn () {
+		if (this.enabled == false) {
+			return;
+		}
+
 		int index = Random.Range (0, m_shipTypes.Length);
 		float random_x = Random.Range (0f, 1f);
 
