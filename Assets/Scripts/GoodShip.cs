@@ -20,6 +20,7 @@ public class GoodShip : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		m_Health += Time.deltaTime;
 		spriteRenderer.color = Color.Lerp(this.hale, this.hot, Mathf.Lerp(0, 1, (1 - m_Health/m_MaxHealth)));
 	}
 	
