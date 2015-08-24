@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25cb2f7c362412439bdebe28f0dd239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusText: {fileID: 21300028, guid: 9cdf2ada226b707418227f96848076d4, type: 3}
 --- !u!212 &21227704
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -130,7 +131,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9203c535a39108f4ba1be90bbaf163ab, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: .333333313}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
 --- !u!212 &21271226
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -172,6 +173,19 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9034466257123184395fe95a44855bbc, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: statusText
+      value: 
+      objectReference: {fileID: 21300028, guid: 9cdf2ada226b707418227f96848076d4,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108868}
