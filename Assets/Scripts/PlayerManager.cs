@@ -5,8 +5,10 @@ public class PlayerManager : MonoBehaviour
 {
     public GameObject m_EyePrefab;
     public GameObject m_LogicalEyePrefab;
-	public GameObject beast;
+	public Beast beast;
     public GameObject m_GlyphPrefab;
+
+	public bool playerDead = false;
 
     GameObject m_EyePool;
     GameObject m_LogicalEyes;
@@ -98,6 +100,11 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+		if (this.beast.isDead == true) {
+			this.playerDead = true;
+		}
+
         //Check that the left/rightness of eye pairs match the world left/rightness
         for (int i = 0; i < m_LogicalEyes.transform.childCount; i++)
         {

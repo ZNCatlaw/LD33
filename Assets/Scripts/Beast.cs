@@ -6,6 +6,8 @@ public class Beast : MonoBehaviour {
 	public float damageStep;
 	public float creep;
 
+	public bool isDead = false;
+
 	private int cosmic_rage = 0;
 	private int damage = 0;
 	private float startingPosition;
@@ -24,11 +26,21 @@ public class Beast : MonoBehaviour {
 	}
 
 	void PushBack() {
-		this.transform.Translate(new Vector3(0, -damageStep, 0));
+		this.transform.Translate (new Vector3 (0, -damageStep, 0));
+
+		// if the beast has fallen off the screen, shut down its collider
+		if (this.transform.position.y < (-startingPosition)) {
+			this.isDead = true;
+			this.GetComponent<PolygonCollider2D>().enabled = false;
+		}
 	}
 
 	// Update is called once per frame
 	void Update () {
+		if (this.isDead) {
+			return;
+		}
+
 		this.CreepForward ();
 	}
 
