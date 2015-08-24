@@ -14,17 +14,33 @@ public class LogicalEye : MonoBehaviour
     float m_IdleTimeoutRemaining;
     public float m_IdleTimeout;
 
+    public int m_PlayerNum;
+    public int m_HandNum;
+
+
+    string[] m_Hand = { "_Left", "_Right" };
+
     // Use this for initialization
     void Start ()
     {
         m_IdleTimeoutRemaining = 0;
     }
 
-	void ReturnTargetEye() {
-		m_PlayerManager.ReturnEye( m_TargetEye );
-		m_TargetEye = null;
-		m_EyeClosing = false;
-	}
+    public void SetHand( int hand)
+    {
+        SetPlayer(m_PlayerNum, hand);
+    }
+
+    public void SetPlayer(int player, int hand)
+    {
+        m_PlayerNum = player;
+        m_HandNum = hand;
+
+        m_Horizontal = "" + player + m_Hand[hand] + "Horizontal";
+        m_Vertical = "" + player + m_Hand[hand] + "Vertical";
+        m_Trigger = "" + player + m_Hand[hand] + "Fire";
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -42,24 +58,27 @@ public class LogicalEye : MonoBehaviour
             m_IdleTimeoutRemaining -= Time.deltaTime;
         }
 
-        if (!m_EyeClosing && m_TargetEye && m_IdleTimeoutRemaining <= 0)
-        {
-            //The player is idle, close and release the eye
-            m_TargetEye.Close(this.ReturnTargetEye);
-			m_EyeClosing = true;
-		} else if (m_EyeClosing && m_TargetEye && m_IdleTimeoutRemaining > 0.0f) {
-
-			m_EyeClosing = false;
+		if(!m_TargetEye && m_IdleTimeoutRemaining > 0.0f)        
+		{
+			// OPEN The player is not idle, find an eye to use
+			m_TargetEye = m_PlayerManager.GetEye();
+			m_TargetEye.transform.parent = transform;
 			m_TargetEye.SetColor(m_Colour);
 			m_TargetEye.Open();
-		} else if(!m_EyeClosing && !m_TargetEye && m_IdleTimeoutRemaining > 0.0f)
+		} else if (m_TargetEye && !m_TargetEye.isClosing && m_IdleTimeoutRemaining <= 0)
         {
-            //The player is not idle, find an eye to use
-            m_TargetEye = m_PlayerManager.GetEye();
-            m_TargetEye.transform.parent = transform;
-            m_TargetEye.SetColor(m_Colour);
-            m_TargetEye.Open();
-        }
+            // START CLOSING The player is idle, close and release the eye
+            m_TargetEye.Close();
+		} else if (m_TargetEye && m_TargetEye.isClosing && m_IdleTimeoutRemaining > 0.0f) 
+		{
+			// INTERRUPT CLOSING if the eye is closing and the player provides input, cancel the close
+			m_TargetEye.Open();
+		} else if (m_TargetEye && m_TargetEye.isClosed) 
+		{
+			// REMOVE EYE if the eye is finished closing, clean it up
+			m_PlayerManager.ReturnEye( m_TargetEye );
+			m_TargetEye = null;
+		} 
 
         if (m_TargetEye)
         {
