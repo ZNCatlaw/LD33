@@ -43,6 +43,8 @@ public class Eye : MonoBehaviour
 
     public void Fire()
     {
+		if (this.beast.isDead) { return; }
+
         if (m_LookDirection.magnitude > 0.1f)
         {
             Vector2 start = m_Laser.transform.position;// transform.GetChild(0).transform.position;
