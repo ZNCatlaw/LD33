@@ -25,7 +25,7 @@ public class GoodShip : MonoBehaviour {
 	}
 	
 	public void Explode () {
-		GameObject explosion = Instantiate (shipExplosion, this.transform.position, Quaternion.identity) as GameObject;
+		Instantiate (shipExplosion, this.transform.position, Quaternion.identity);
 
 		DestroyObject (gameObject);
 	}

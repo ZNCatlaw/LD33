@@ -8,7 +8,9 @@ public class LinearAttackPattern : MonoBehaviour {
 
 	public float m_bullet_frequency;
 	public float m_bullet_speed;
+	public int m_bullet_y_direction;
 
+	public GameObject bulletType;
 
 	[HideInInspector]
 	public ProjectileManager m_projectileManager;
@@ -40,13 +42,13 @@ public class LinearAttackPattern : MonoBehaviour {
 
 	void Shoot () {
 		// request a bullet with my position towards the target
-		m_projectileManager.AddBullet(this.transform.position, this.GetTarget().normalized, this.m_bullet_speed);
+		m_projectileManager.AddBullet(this.bulletType, this.transform.position, this.GetTarget().normalized, this.m_bullet_speed);
 	}
 
 	// returns a point directly ahead of the ship
 	Vector3 GetTarget () {
 		// bottom of the screen
-		Vector2 target = Camera.main.ViewportToWorldPoint(new Vector2(0, -1));
+		Vector2 target = Camera.main.ViewportToWorldPoint(new Vector2(0, m_bullet_y_direction));
 		Vector2 position = this.transform.position;
 		
 		// correct so that the ship is pointing straight ahead

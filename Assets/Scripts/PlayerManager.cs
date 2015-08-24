@@ -27,7 +27,9 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        //Create the eyepool and fill it with eyes
+		ProjectileManager projectilManager = GameObject.Find ("Game").GetComponent<ProjectileManager> () as ProjectileManager;
+
+		//Create the eyepool and fill it with eyes
         m_EyePool = new GameObject();
         m_EyePool.transform.SetParent(beast.transform);
         m_EyePool.name = "Eye Pool";
@@ -42,6 +44,7 @@ public class PlayerManager : MonoBehaviour
             Vector3 position = RandomEyePosition();// new Vector3(Random.Range(-3, 3), Random.Range(0.5f, 2), 0);
             GameObject eye = Instantiate(m_EyePrefab, position, transform.rotation) as GameObject;
             eye.transform.parent = m_EyePool.transform;
+			eye.GetComponent<LinearAttackPattern>().m_projectileManager = projectilManager;
             eye.name = "Eye" + i;
         }
 

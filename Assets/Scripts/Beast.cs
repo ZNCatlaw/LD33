@@ -24,6 +24,7 @@ public class Beast : MonoBehaviour {
 		currentPosition = startingPosition;
 
 		spriteRenderer = this.GetComponent<SpriteRenderer> ();
+
 	}
 
 	void CreepForward () {
@@ -50,19 +51,21 @@ public class Beast : MonoBehaviour {
 
 		this.CreepForward ();
 
+		// gradually regenerate rage
 		if (m_cosmicRage > 0) {
 			m_cosmicRage -= Time.deltaTime;
 	
-		} else if (m_cosmicRage > m_maxCosmicRage) {
+		}
+
+		// reset the cosmic rage and DESTROY WORLDS
+		if (m_cosmicRage > m_maxCosmicRage) {
 			m_cosmicRage = 0;
 		}
 
-		Debug.Log (m_cosmicRage / m_maxCosmicRage);
 		spriteRenderer.color = Color.Lerp(this.hale, this.hot, Mathf.Lerp(0, 1, (m_cosmicRage/m_maxCosmicRage)));
 	}
 
 	void OnTriggerEnter2D (Collider2D collider) {
-		Debug.Log ("yes");
 		GameObject other = collider.gameObject;
 		if (other.name == "ShipPuma") {
 
