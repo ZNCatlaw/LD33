@@ -141,6 +141,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &615714476 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 176082, guid: e55f7846f8068c844bf357b2edaf8579, type: 2}
+  m_PrefabInternal: {fileID: 1674394085}
+--- !u!95 &615714477
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615714476}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb08073b8ff12ae478d2cb579976d3a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1051315369
 GameObject:
   m_ObjectHideFlags: 0
