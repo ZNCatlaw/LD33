@@ -282,8 +282,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_shipTypes:
   - {fileID: 157644, guid: e46d0d219db3ce14ea881c15f86a4bf8, type: 2}
-  m_spawnTime: .200000003
-  m_spawnDelay: 0
+  m_IntroTime: 15
+  m_IntroStartRate: .5
+  m_IntroEndRate: 1.5
+  m_NormalSlopeRate: .0250000004
+  m_Period: 10
+  m_Intensity: .5
+  m_CurrentSpawnRate: 0
+  m_CurrentWaveFactor: 0
 --- !u!82 &1051315376
 AudioSource:
   m_ObjectHideFlags: 0

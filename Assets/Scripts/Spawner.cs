@@ -1,25 +1,77 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spawner : MonoBehaviour {
 
+public class Spawner : MonoBehaviour
+{
 	public GameObject[] m_shipTypes;
-	public float m_spawnTime;
-	public float m_spawnDelay;
 
-	private GameObject m_spawnedShips;
+    public float m_IntroTime;
+    public float m_IntroStartRate;
+    public float m_IntroEndRate;
+
+    public float m_NormalSlopeRate;
+
+    public float m_Period;
+    public float m_Intensity;
+
+    public float m_CurrentSpawnRate;
+    public float m_CurrentWaveFactor;
+
+    private GameObject m_spawnedShips;
 	private ProjectileManager m_projectileManager;
+    private PlayerManager m_playerManager;
 
 	// Use this for initialization
-	void Start () {
+	public void Start()
+    {
 		m_projectileManager = GetComponentInParent<ProjectileManager> ();
 		m_spawnedShips = new GameObject (); 
 		m_spawnedShips.name = "SpawnedShips";
-		InvokeRepeating ("Spawn", m_spawnDelay, m_spawnTime);
-	}
 
-	void Spawn () {
-		if (this.enabled == false) {
+        m_playerManager = GameObject.Find("Game").GetComponent<PlayerManager>();
+    }
+
+    public void Update()
+    {
+        float time = Time.timeSinceLevelLoad;
+
+        float spawnRate = 0;
+        if( time < m_IntroTime )
+        {
+            spawnRate = m_IntroStartRate + (m_IntroEndRate - m_IntroStartRate) * (time / m_IntroTime);
+        }
+        else
+        {
+            spawnRate = m_IntroEndRate + time * m_NormalSlopeRate;
+        }
+
+        //Find the current spawn rate and then integrate it over time to figure out how much to spawn this frame.
+        int activePlayers = Mathf.Max(m_playerManager.GetCurrentNumberOfPlayers(), 1);
+
+        m_CurrentWaveFactor = 1.0f + (Mathf.Sin( (time * 2.0f * Mathf.PI) / m_Period) * m_Intensity);
+        m_CurrentSpawnRate = spawnRate * activePlayers * m_CurrentWaveFactor;
+
+        //Integrate(poorly) the spawn rate to find how many ships to spawn this frame
+        float spawnVolume = m_CurrentSpawnRate * Time.deltaTime;
+
+        //Spawn whole ships
+        while(spawnVolume > 1.0f)
+        {
+            Spawn();
+            spawnVolume -= 1.0f;
+        }
+        //Spawn fractional ships
+        if( spawnVolume > Random.Range(0.0f,1.0f))
+        {
+            Spawn();
+        }
+    }
+
+    void Spawn ()
+    {
+		if(!this.enabled)
+        {
 			return;
 		}
 

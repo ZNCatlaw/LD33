@@ -6,11 +6,11 @@ public class PlayerManager : MonoBehaviour
 {
     public GameObject m_EyePrefab;
     public GameObject m_LogicalEyePrefab;
-	public Beast beast;
+    public Beast beast;
     public GameObject m_GlyphPrefab;
-	public int m_numberOfPlayers;
+    public int m_numberOfPlayers;
 
-	public bool playerDead = false;
+    public bool playerDead = false;
 
     GameObject m_EyePool;
     GameObject m_LogicalEyes;
@@ -31,9 +31,9 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-		ProjectileManager projectilManager = GameObject.Find ("Game").GetComponent<ProjectileManager> () as ProjectileManager;
+        ProjectileManager projectilManager = GameObject.Find("Game").GetComponent<ProjectileManager>() as ProjectileManager;
 
-		//Create the eyepool and fill it with eyes
+        //Create the eyepool and fill it with eyes
         m_EyePool = new GameObject();
         m_EyePool.transform.SetParent(beast.transform);
         m_EyePool.name = "Eye Pool";
@@ -42,19 +42,19 @@ public class PlayerManager : MonoBehaviour
         m_LogicalEyes.transform.SetParent(this.transform);
         m_LogicalEyes.name = "Logical Eye Pool";
 
-        for (int i = 0; i < m_numberOfPlayers*2; i++)
+        for (int i = 0; i < m_numberOfPlayers * 2; i++)
         {
             //Vector3 position = m_Positions[i];
             Vector3 position = RandomEyePosition();// new Vector3(Random.Range(-3, 3), Random.Range(0.5f, 2), 0);
             GameObject eye = Instantiate(m_EyePrefab, position, transform.rotation) as GameObject;
             eye.transform.parent = m_EyePool.transform;
-			eye.GetComponent<EnragedAttackPattern>().m_projectileManager = projectilManager;
-			eye.GetComponent<Eye>().beast = this.beast;
+            eye.GetComponent<EnragedAttackPattern>().m_projectileManager = projectilManager;
+            eye.GetComponent<Eye>().beast = this.beast;
             eye.name = "Eye" + i;
         }
 
         //Create the logical eyes, then will grab eye's from the eye pool as needed
-        for (int i = 0; i < m_numberOfPlayers*2; i++)
+        for (int i = 0; i < m_numberOfPlayers * 2; i++)
         {
             GameObject logicalEyeObject = Instantiate(m_LogicalEyePrefab, Vector3.zero, transform.rotation) as GameObject;
             LogicalEye logicalEye = logicalEyeObject.GetComponent<LogicalEye>();
@@ -77,7 +77,21 @@ public class PlayerManager : MonoBehaviour
         laserSound.volume = 0;
         laserSound.Play();
     }
-
+    public int GetCurrentNumberOfPlayers()
+    {
+        int count = 0;
+        for (int i = 0; i < m_numberOfPlayers; i++)
+        {
+            LogicalEye a;
+            LogicalEye b;
+            FindEyePair(i, out a, out b);
+            if (a && b && (a.m_TargetEye || b.m_TargetEye))
+            {
+                count++;
+            }
+        }
+        return count;
+    }
     public Eye GetEye()
     {
         //Pick a random unused eye
@@ -157,7 +171,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-
+/*
         //Search for eye pairs
         {
             for (int i = 0; i < m_numberOfPlayers; i++)
@@ -168,10 +182,12 @@ public class PlayerManager : MonoBehaviour
                 FindEyePair(0, out logicalA, out logicalB);
                 if (logicalA && logicalA.m_TargetEye && logicalB && logicalB.m_TargetEye)
                 {
-                    Vector2 startA = logicalA.m_TargetEye.transform.position;
+                    Vector2 startA = logicalA.m_TargetEye.m_Laser.transform.position;
                     Vector2 endA = startA + logicalA.m_TargetEye.m_LookDirection * 25.0f; ;
-                    Vector2 startB = logicalB.m_TargetEye.transform.position;
+                    Vector2 startB = logicalB.m_TargetEye.m_Laser.transform.position;
                     Vector2 endB = startB + logicalB.m_TargetEye.m_LookDirection * 25.0f;
+
+                    Debug.Log(logicalA.m_TargetEye.m_LookDirection);
 
                     Vector2 intersection = new Vector2();
                     if (LineIntersection(startA, endA, startB, endB, out intersection))
@@ -183,10 +199,9 @@ public class PlayerManager : MonoBehaviour
                     {
                         m_PlayerGlyphs[i].SetActive(false);
                     }
-
                 }
             }
-        }
+        }*/
 
         laserSound.volume = Mathf.SmoothStep(0, laserSoundMaxVolume, Mathf.Max(laserIntensities.ToArray()) / 1.0f);
     }
