@@ -33,9 +33,7 @@ public class ProjectileManager : MonoBehaviour
 
 	public void AddBullet( Vector3 position, Vector3 direction, float bullet_speed )
 	{
-		Quaternion rot = new Quaternion();
-		rot.SetLookRotation(direction, new Vector3( 0, 0, 1));
-		GameObject laser = Instantiate(m_LaserPrefab, position, rot) as GameObject;
+		GameObject laser = Instantiate(m_LaserPrefab, position, Quaternion.identity) as GameObject;
 		laser.transform.parent = m_Projectiles.transform;
 		laser.name = "SmallLaser";
 		

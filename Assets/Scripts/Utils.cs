@@ -29,18 +29,18 @@ namespace Utils
     {
         public enum Fade { In, Out };
 
-        public static IEnumerator FadeAudio(AudioSource audio, float timer, Fade fadeType)
+        public static IEnumerator FadeAudio(AudioSource audio, float duration, Fade fadeType, Interpolate.EaseType easeType = Interpolate.EaseType.EaseOutExpo)
         {
-            float start = fadeType == Fade.In ? 0.0F : 1.0F;
-            float end = fadeType == Fade.In ? 1.0F : 0.0F;
-            float i = 0.0F;
-            float step = 1.0F / timer;
+            float start = fadeType == Fade.In ? 0.0f : 1.0f;
+            float distance = fadeType == Fade.In ? 1.0f : -1.0f;
+            float t = 0.0f;
+            var easeFunction = Interpolate.Ease(easeType);
 
-            while (i <= 1.0F)
+            while (t <= duration)
             {
-                i += step * Time.deltaTime;
-                audio.volume = Mathf.Lerp(start, end, i);
-                yield return new WaitForSeconds(step * Time.deltaTime);
+                audio.volume = easeFunction(start, distance, t, duration);
+                t += Time.deltaTime;
+                yield return null;
             }
         }
     }
