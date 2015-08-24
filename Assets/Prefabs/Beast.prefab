@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5044270}
   - 114: {fileID: 11474382}
   - 212: {fileID: 21224534}
+  - 81: {fileID: 8160126}
   m_Layer: 8
   m_Name: Beast
   m_TagString: Untagged
@@ -70,6 +71,13 @@ PolygonCollider2D:
       - {x: -6, y: -1.5}
       - {x: 6, y: -1.5}
       - {x: 6, y: 1.5}
+--- !u!81 &8160126
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176082}
+  m_Enabled: 1
 --- !u!114 &11474382
 MonoBehaviour:
   m_ObjectHideFlags: 1
