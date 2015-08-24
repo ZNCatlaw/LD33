@@ -13,7 +13,6 @@ GameObject:
   - 114: {fileID: 11453126}
   - 50: {fileID: 5032136}
   - 58: {fileID: 5823494}
-  - 114: {fileID: 11440004}
   m_Layer: 12
   m_Name: SmallLaser
   m_TagString: Untagged
@@ -93,20 +92,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .5
---- !u!114 &11440004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f661bdb3dee0d0439c96e78230cc4e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxLifespan: 10
-  destroyAfterAudio: 1
-  destroyAfterAnim: 1
 --- !u!114 &11453126
 MonoBehaviour:
   m_ObjectHideFlags: 1
