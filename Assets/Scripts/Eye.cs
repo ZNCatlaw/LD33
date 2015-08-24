@@ -110,5 +110,9 @@ public class Eye : MonoBehaviour
         Color color = m_Laser.GetComponent<MeshRenderer>().material.GetColor("_Color");
         color.a = m_LaserIntensity;
         m_Laser.GetComponent<Renderer>().material.SetColor("_Color", color);
+
+        //Add a random force to mix things up
+        float f = 1000.0f;
+        transform.GetComponent<Rigidbody2D>().AddForce( new Vector2(Random.Range( -f, f), Random.Range( -f, f)));
     }
 }
