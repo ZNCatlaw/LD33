@@ -1,0 +1,242 @@
+fileFormatVersion: 2
+guid: 9cdf2ada226b707418227f96848076d4
+timeCreated: 1440440970
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GameOver
+    21300002: ArcadeEndText_0
+    21300004: ArcadeEndText_1
+    21300006: ArcadeEndText_2
+    21300008: ArcadeEndText_3
+    21300010: ArcadeEndText_4
+    21300012: ArcadeEndText_5
+    21300014: ArcadeEndText_6
+    21300016: ArcadeEndText_7
+    21300018: ArcadeEndText_8
+    21300020: ArcadeEndText_9
+    21300022: ArcadeEndText_10
+    21300024: ArcadeEndText_11
+    21300026: ArcadeEndText_12
+    21300028: ArcadeEndText_13
+    21300030: ArcadeEndText_14
+    21300032: ArcadeEndText_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 20
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: GameOver
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 226
+        width: 204
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 112
+        width: 101
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 93
+        width: 99
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 74
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_3
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 74
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_4
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 74
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_5
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 74
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_6
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 74
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 55
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_8
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 55
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_9
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 55
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_10
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 55
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_11
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 55
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_12
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 55
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 36
+        width: 77
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_14
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 96
+        width: 138
+        height: 30
+      alignment: 9
+      pivot: {x: .5, y: .75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArcadeEndText_15
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 62
+        width: 144
+        height: 30
+      alignment: 9
+      pivot: {x: .5, y: .75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -5,7 +5,11 @@ public class PlayerManager : MonoBehaviour
 {
     public GameObject m_EyePrefab;
     public GameObject m_LogicalEyePrefab;
+	public Beast beast;
     public GameObject m_GlyphPrefab;
+	public int m_numberOfPlayers;
+
+	public bool playerDead = false;
 
     GameObject m_EyePool;
     GameObject m_LogicalEyes;
@@ -25,14 +29,14 @@ public class PlayerManager : MonoBehaviour
     {
         //Create the eyepool and fill it with eyes
         m_EyePool = new GameObject();
-        m_EyePool.transform.SetParent(this.transform);
+        m_EyePool.transform.SetParent(beast.transform);
         m_EyePool.name = "Eye Pool";
 
         m_LogicalEyes = new GameObject();
         m_LogicalEyes.transform.SetParent(this.transform);
         m_LogicalEyes.name = "Logical Eye Pool";
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < m_numberOfPlayers*2; i++)
         {
             //Vector3 position = m_Positions[i];
             Vector3 position = RandomEyePosition();// new Vector3(Random.Range(-3, 3), Random.Range(0.5f, 2), 0);
@@ -42,7 +46,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         //Create the logical eyes, then will grab eye's from the eye pool as needed
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < m_numberOfPlayers*2; i++)
         {
             GameObject logicalEyeObject = Instantiate(m_LogicalEyePrefab, Vector3.zero, transform.rotation) as GameObject;
             LogicalEye logicalEye = logicalEyeObject.GetComponent<LogicalEye>();
@@ -53,8 +57,8 @@ public class PlayerManager : MonoBehaviour
             logicalEye.m_Colour = m_Colors[i / 2];
         }
 
-        m_PlayerGlyphs = new GameObject[4];
-        for (int i = 0; i < 4; i++)
+        m_PlayerGlyphs = new GameObject[m_numberOfPlayers];
+        for (int i = 0; i < m_numberOfPlayers; i++)
         {
             m_PlayerGlyphs[i] = Instantiate(m_GlyphPrefab, Vector3.zero, transform.rotation) as GameObject;
             m_PlayerGlyphs[i].SetActive(false);
@@ -97,6 +101,11 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+		if (this.beast.isDead == true) {
+			this.playerDead = true;
+		}
+
         //Check that the left/rightness of eye pairs match the world left/rightness
         for (int i = 0; i < m_LogicalEyes.transform.childCount; i++)
         {
@@ -133,7 +142,7 @@ public class PlayerManager : MonoBehaviour
 
         //Search for eye pairs
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < m_numberOfPlayers; i++)
             {
                 LogicalEye logicalA;
                 LogicalEye logicalB;
