@@ -29,7 +29,14 @@ public class Eye : MonoBehaviour
         vertical = Mathf.Max(vertical, 0);
 
         m_LookDirection = new Vector2(horizontal, vertical);
-        m_LookDirection.Normalize();
+        if (m_LookDirection.magnitude < 0.19f)
+        {
+            m_LookDirection = Vector3.zero;
+        }
+        else
+        {
+            m_LookDirection.Normalize();
+        }
 
         Vector3 eyeOffset = transform.GetChild(0).transform.localPosition;
         eyeOffset.x = horizontal * 0.3f;
@@ -62,8 +69,8 @@ public class Eye : MonoBehaviour
             Quaternion q = Quaternion.AngleAxis(angle + 90.0f, Vector3.forward);
             m_Laser.transform.rotation = q;// Quaternion.Slerp(m_Eyes[0].m_Laser.transform.rotation, q, Time.deltaTime * 5.0f );
             m_Laser.transform.localScale = new Vector3(0.25f, distance, 1);// 1, distance, 1);
-            Vector2 temp = m_Laser.transform.rotation * new Vector2(0, distance * (-0.5f));//.localPosition;
-            m_Laser.transform.localPosition = temp;//
+            Vector3 temp = m_Laser.transform.rotation * new Vector3(0, distance * (-0.5f), -1.0f);
+            m_Laser.transform.localPosition = temp;
 
             m_LaserIntensity = 1.0f;
         }
@@ -88,12 +95,12 @@ public class Eye : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        m_Laser = Instantiate(m_LaserPrefab, transform.position, transform.rotation) as GameObject;
+        m_Laser = Instantiate(m_LaserPrefab, Vector3.zero, transform.rotation) as GameObject;
         m_Laser.transform.parent = transform;
         m_Laser.name = "EyeLaser";
 
-		eyeClosed = this.transform.Find ("EyeClosed").gameObject;
-		colorLerp = this.GetComponent<ColorLerp> ();
+		eyeClosed = this.transform.Find("EyeClosed").gameObject;
+		colorLerp = this.GetComponent<ColorLerp>();
     }
 
     // Update is called once per frame
