@@ -30,6 +30,8 @@ public class BackgroundManager : MonoBehaviour {
     [Range(0.0f, 5.0f)]
     public float xParallax = 1f;
 
+    public bool paused = false;
+
     private float waterAccumulator = 0f;
     private float nextWaterSpawnTime = 0f;
 
@@ -96,6 +98,8 @@ public class BackgroundManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (paused) return;
+
         //Accumulate time and spawn new water decorations
         waterAccumulator += Time.deltaTime;
         cloudAccumulator += Time.deltaTime;
