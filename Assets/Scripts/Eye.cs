@@ -18,7 +18,7 @@ public class Eye : MonoBehaviour
 	private EnragedAttackPattern attackPattern;
 
 
-    GameObject m_Laser;
+    public GameObject m_Laser;
     public float m_LaserIntensity;
 
 	[HideInInspector] public Beast beast;
