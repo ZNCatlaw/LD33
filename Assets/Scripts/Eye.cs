@@ -19,7 +19,7 @@ public class Eye : MonoBehaviour
 
 
     GameObject m_Laser;
-    float m_LaserIntensity;
+    public float m_LaserIntensity;
 
 	[HideInInspector] public Beast beast;
 

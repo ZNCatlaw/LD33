@@ -27,11 +27,12 @@ public class Game : MonoBehaviour
 		if (Input.GetKey(KeyCode.Escape)) { Application.Quit(); }
 
 		if (gameOver == false && m_playerManager.playerDead == true) {
-			Instantiate(this.gameOverScreen);
+			Instantiate(gameOverScreen);
+            gameOverScreen.GetComponent<EndOfGameBehaviour>().setFinalScore(m_playerManager.beast.kills);
 
 			m_spawner.enabled = false;
 			GameObject.Find("Background").GetComponent<BackgroundManager>().paused = true;
-            StartCoroutine(Utils.Sound.FadeAudio(GetComponent<AudioSource>(), 3.0f, Utils.Sound.Fade.Out, Interpolate.EaseType.EaseOutExpo));
+            StartCoroutine(Utils.Sound.FadeAudio(GetComponents<AudioSource>()[0], 3.0f, Utils.Sound.Fade.Out, Interpolate.EaseType.EaseOutExpo));
             gameOver = true;
 		}
 	}

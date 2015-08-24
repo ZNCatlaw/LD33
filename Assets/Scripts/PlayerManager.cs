@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class PlayerManager : MonoBehaviour
     GameObject m_LogicalEyes;
 
     GameObject[] m_PlayerGlyphs;
+
+    AudioSource laserSound;
+    float laserSoundMaxVolume;
 
     Vector2[] m_Positions = { new Vector2(-3, 2), new Vector2(3, 2), new Vector2(-3, 0.5f), new Vector2(3, 0.5f) };
     string[] m_Colors = { "Blue", "Green", "Purple", "Red", "Yellow" };
@@ -67,6 +71,11 @@ public class PlayerManager : MonoBehaviour
             m_PlayerGlyphs[i] = Instantiate(m_GlyphPrefab, Vector3.zero, transform.rotation) as GameObject;
             m_PlayerGlyphs[i].SetActive(false);
         }
+
+        laserSound = GetComponents<AudioSource>()[1];
+        laserSoundMaxVolume = laserSound.volume;
+        laserSound.volume = 0;
+        laserSound.Play();
     }
 
     public Eye GetEye()
@@ -108,7 +117,10 @@ public class PlayerManager : MonoBehaviour
 
 		if (this.beast.isDead == true) {
 			this.playerDead = true;
+            laserSound.Stop();
 		}
+
+        List<float> laserIntensities = new List<float>();
 
         //Check that the left/rightness of eye pairs match the world left/rightness
         for (int i = 0; i < m_LogicalEyes.transform.childCount; i++)
@@ -117,6 +129,7 @@ public class PlayerManager : MonoBehaviour
             if (logicalA.m_TargetEye)
             {
                 Eye eyeA = logicalA.m_TargetEye.GetComponent<Eye>();
+                laserIntensities.Add(eyeA.m_LaserIntensity);
 
                 for (int j = i; j < m_LogicalEyes.transform.childCount; j++)
                 {
@@ -124,6 +137,7 @@ public class PlayerManager : MonoBehaviour
                     if (logicalB.m_TargetEye)
                     {
                         Eye eyeB = logicalB.m_TargetEye.GetComponent<Eye>();
+                        laserIntensities.Add(eyeB.m_LaserIntensity);
 
                         if (logicalA.m_PlayerNum == logicalB.m_PlayerNum)
                         {
@@ -174,6 +188,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
+        laserSound.volume = Mathf.SmoothStep(0, laserSoundMaxVolume, Mathf.Max(laserIntensities.ToArray()) / 1.0f);
     }
 
     bool LineIntersection(Vector2 ps1, Vector2 pe1, Vector2 ps2, Vector2 pe2, out Vector2 intersection)
