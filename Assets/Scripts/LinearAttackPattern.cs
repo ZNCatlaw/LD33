@@ -28,10 +28,11 @@ public class LinearAttackPattern : MonoBehaviour {
 
 	IEnumerator Shooting () {
 		int count = 0;
+		float wait = Random.Range (m_bullet_frequency - 0.1f, m_bullet_frequency + 0.1f);
 
 		while(count < m_salvo_size) { 
 			count++;
-			yield return new WaitForSeconds(Random.Range(m_bullet_frequency - 0.1f, m_bullet_frequency + 0.1f));
+			yield return new WaitForSeconds(wait);
 			Shoot(); 
 		}
         if (shootSound != null && !shootSound.isPlaying) shootSound.Play();
