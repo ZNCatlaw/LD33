@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 public class VolatileObject : MonoBehaviour {
 
@@ -9,7 +7,7 @@ public class VolatileObject : MonoBehaviour {
     public bool destroyAfterAudio;
     public bool destroyAfterAnim;
 
-    private List<float> times = new List<float>();
+    private float[] times = new float[2];
 
     // Use this for initialization
     void Start() {
@@ -20,7 +18,7 @@ public class VolatileObject : MonoBehaviour {
             {
                 if (audioSource.playOnAwake)
                 {
-                    times.Add(audioSource.clip.length);
+                    times[0] = audioSource.clip.length;
                 }
             }
         }
@@ -30,12 +28,11 @@ public class VolatileObject : MonoBehaviour {
             var animator = gameObject.GetComponent<Animator>();
             if (animator != null)
             {
-                times.Add(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+                times[1] = animator.GetCurrentAnimatorStateInfo(0).length;
             }
         }
 
-        var lifeSpan = Mathf.Min(times.Max(), maxLifespan);
-        Debug.Log(lifeSpan);
+        var lifeSpan = Mathf.Min(Mathf.Max(times), maxLifespan);
         Destroy(gameObject, lifeSpan);
     }
 	
