@@ -43,7 +43,9 @@ GameObject:
   - 114: {fileID: 11499376}
   - 212: {fileID: 21208748}
   - 114: {fileID: 11445154}
-  m_Layer: 0
+  - 50: {fileID: 5063054}
+  - 58: {fileID: 5846804}
+  m_Layer: 14
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,6 +294,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 412178}
   m_RootOrder: 8
+--- !u!50 &5063054
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115802}
+  m_Mass: 100
+  m_LinearDrag: 50
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &5846804
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115802}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .899999976
 --- !u!114 &11439976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -319,7 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material1: {fileID: 2100000, guid: ddcde591e544841b0ac9abb00efc1e59, type: 2}
   material2: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  duration: 2
+  duration: 1
 --- !u!114 &11499376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -333,10 +364,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LookDirection: {x: 0, y: 0}
   m_LaserPrefab: {fileID: 155948, guid: dd63c83076527ec42ab600721360cb1b, type: 2}
+  closeLidDelay: .5
   m_Horizontal: 
   m_Vertical: 
   m_Trigger: 
-  closeLidDelay: 1
 --- !u!212 &21208748
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -655,7 +686,7 @@ Prefab:
       objectReference: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.a
@@ -663,7 +694,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: closeLidDelay
-      value: 1
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: openEyes.Array.data[0]
@@ -680,6 +711,54 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: f0f4acf291d254c48a5e2f3206750556,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_ForceVariation
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ColliderMask.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: duration
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 115802}
