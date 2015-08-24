@@ -44,8 +44,8 @@ public class Beast : MonoBehaviour {
 		this.CreepForward ();
 	}
 
-	void OnTriggerEnter2D (Collider2D collider) {
-		Debug.Log ("yes");
+	void OnTriggerEnter2D (Collider2D collider)
+    {
 		GameObject other = collider.gameObject;
 		if (other.name == "ShipPuma") {
 
