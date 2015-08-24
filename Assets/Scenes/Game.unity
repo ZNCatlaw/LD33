@@ -653,6 +653,10 @@ Prefab:
       propertyPath: m_Size.x
       value: 2.14104843
       objectReference: {fileID: 0}
+    - target: {fileID: 11474382, guid: e55f7846f8068c844bf357b2edaf8579, type: 2}
+      propertyPath: m_maxCosmicRage
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e55f7846f8068c844bf357b2edaf8579, type: 2}
   m_IsPrefabParent: 0
