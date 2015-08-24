@@ -140,7 +140,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &615714476 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 176082, guid: e55f7846f8068c844bf357b2edaf8579, type: 2}
@@ -242,6 +242,7 @@ MonoBehaviour:
   m_LogicalEyePrefab: {fileID: 194984, guid: ee1693bf09bc97b4aa764c674a07578a, type: 2}
   beast: {fileID: 615714482}
   m_GlyphPrefab: {fileID: 105974, guid: 635922bfd4a506b4fbf685b7ced2048d, type: 2}
+  m_numberOfPlayers: 4
   playerDead: 0
 --- !u!114 &1051315373
 MonoBehaviour:
@@ -266,7 +267,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &1051315375
 MonoBehaviour:
   m_ObjectHideFlags: 0

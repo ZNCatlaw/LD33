@@ -38,7 +38,7 @@ InputManager:
     axis: 1
     joyNum: 1
   - serializedVersion: 3
-    m_Name: 0_LeftFire
+    m_Name: 0_LeftFireAxis
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -54,20 +54,20 @@ InputManager:
     axis: 8
     joyNum: 1
   - serializedVersion: 3
-    m_Name: 0_RightFire
+    m_Name: 0_LeftFireButton
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick 1 button 4
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
     dead: .189999998
-    sensitivity: 1000
+    sensitivity: 1
     snap: 0
-    invert: 0
-    type: 2
-    axis: 9
+    invert: 1
+    type: 0
+    axis: 4
     joyNum: 1
   - serializedVersion: 3
     m_Name: 0_RightHorizontal
@@ -99,6 +99,38 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
+    axis: 4
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: 0_RightFireAxis
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .189999998
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 9
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: 0_RightFireButton
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 1 button 5
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .189999998
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 0
     axis: 4
     joyNum: 1
   - serializedVersion: 3
@@ -134,7 +166,7 @@ InputManager:
     axis: 1
     joyNum: 2
   - serializedVersion: 3
-    m_Name: 1_LeftFire
+    m_Name: 1_LeftFireAxis
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -150,20 +182,20 @@ InputManager:
     axis: 8
     joyNum: 2
   - serializedVersion: 3
-    m_Name: 1_RightFire
+    m_Name: 1_LeftFireButton
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick 2 button 4
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
     dead: .189999998
     sensitivity: 1
     snap: 0
-    invert: 0
-    type: 2
-    axis: 9
+    invert: 1
+    type: 0
+    axis: 4
     joyNum: 2
   - serializedVersion: 3
     m_Name: 1_RightHorizontal
@@ -195,6 +227,38 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
+    axis: 4
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: 1_RightFireAxis
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .189999998
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 9
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: 1_RightFireButton
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 2 button 5
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .189999998
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 0
     axis: 4
     joyNum: 2
   - serializedVersion: 3
@@ -230,7 +294,7 @@ InputManager:
     axis: 1
     joyNum: 3
   - serializedVersion: 3
-    m_Name: 2_LeftFire
+    m_Name: 2_LeftFireAxis
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -246,20 +310,20 @@ InputManager:
     axis: 8
     joyNum: 3
   - serializedVersion: 3
-    m_Name: 2_RightFire
+    m_Name: 2_LeftFireButton
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick 3 button 4
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
     dead: .189999998
-    sensitivity: 1000
+    sensitivity: 1
     snap: 0
-    invert: 0
-    type: 2
-    axis: 9
+    invert: 1
+    type: 0
+    axis: 4
     joyNum: 3
   - serializedVersion: 3
     m_Name: 2_RightHorizontal
@@ -291,6 +355,38 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
+    axis: 4
+    joyNum: 3
+  - serializedVersion: 3
+    m_Name: 2_RightFireAxis
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .189999998
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 9
+    joyNum: 3
+  - serializedVersion: 3
+    m_Name: 2_RightFireButton
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 3 button 5
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .189999998
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 0
     axis: 4
     joyNum: 3
   - serializedVersion: 3
@@ -326,7 +422,7 @@ InputManager:
     axis: 1
     joyNum: 4
   - serializedVersion: 3
-    m_Name: 3_LeftFire
+    m_Name: 3_LeftFireAxis
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -342,20 +438,20 @@ InputManager:
     axis: 8
     joyNum: 4
   - serializedVersion: 3
-    m_Name: 3_RightFire
+    m_Name: 3_LeftFireButton
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick 4 button 4
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
     dead: .189999998
-    sensitivity: 1000
+    sensitivity: 1
     snap: 0
-    invert: 0
-    type: 2
-    axis: 9
+    invert: 1
+    type: 0
+    axis: 4
     joyNum: 4
   - serializedVersion: 3
     m_Name: 3_RightHorizontal
@@ -387,5 +483,37 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
+    axis: 4
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: 3_RightFireAxis
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .189999998
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 9
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: 3_RightFireButton
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 4 button 5
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .189999998
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 0
     axis: 4
     joyNum: 4

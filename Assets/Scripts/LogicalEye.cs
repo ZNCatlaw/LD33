@@ -11,6 +11,8 @@ public class LogicalEye : MonoBehaviour
     public string m_Horizontal;
     public string m_Vertical;
     public string m_Trigger;
+	public string m_AltTrigger;
+
     float m_IdleTimeoutRemaining;
     public float m_IdleTimeout;
 
@@ -38,7 +40,9 @@ public class LogicalEye : MonoBehaviour
 
         m_Horizontal = "" + player + m_Hand[hand] + "Horizontal";
         m_Vertical = "" + player + m_Hand[hand] + "Vertical";
-        m_Trigger = "" + player + m_Hand[hand] + "Fire";
+        m_Trigger = "" + player + m_Hand[hand] + "FireAxis";
+		m_AltTrigger = "" + player + m_Hand[hand] + "FireButton";
+
     }
 
     // Update is called once per frame
@@ -46,7 +50,7 @@ public class LogicalEye : MonoBehaviour
     {
         float horizontal = Input.GetAxis(m_Horizontal);
         float vertical = Input.GetAxis(m_Vertical);
-        bool trigger = (Input.GetAxis(m_Trigger) > 0.1f);
+        bool trigger = (Input.GetAxis(m_Trigger) > 0.1f || Input.GetButton(m_AltTrigger) == true);
 
         //Check if the player is idle
         if (vertical != 0 || trigger)
