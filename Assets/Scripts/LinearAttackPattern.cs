@@ -13,10 +13,13 @@ public class LinearAttackPattern : MonoBehaviour {
 	[HideInInspector]
 	public ProjectileManager m_projectileManager;
 
+    private AudioSource shootSound;
+
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating("StartShooting", 0, m_salvoPeriod); 
+		InvokeRepeating("StartShooting", 0.5f, m_salvoPeriod);
+        shootSound = gameObject.GetComponent<AudioSource>();
 	}
 
 	void StartShooting () {
@@ -30,8 +33,9 @@ public class LinearAttackPattern : MonoBehaviour {
 			count++;
 			yield return new WaitForSeconds(Random.Range(m_bullet_frequency - 0.1f, m_bullet_frequency + 0.1f));
 			Shoot(); 
-		} 
-	}
+		}
+        if (shootSound != null && !shootSound.isPlaying) shootSound.Play();
+    }
 
 	void Shoot () {
 		// request a bullet with my position towards the target
