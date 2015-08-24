@@ -65,7 +65,8 @@ public class Beast : MonoBehaviour {
 		spriteRenderer.color = Color.Lerp(this.hale, this.hot, Mathf.Lerp(0, 1, (m_cosmicRage/m_maxCosmicRage)));
 	}
 
-	void OnTriggerEnter2D (Collider2D collider) {
+	void OnTriggerEnter2D (Collider2D collider)
+    {
 		GameObject other = collider.gameObject;
 		if (other.name == "ShipPuma") {
 
