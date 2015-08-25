@@ -23,6 +23,7 @@ public class Game : MonoBehaviour
         m_shipManager = GetComponent<ShipManager>();
 		m_spawner = GetComponent<Spawner>();
         kills = 0;
+        timeGameEnded = 0.0f;
 	}
 	
 	// Update is called once per frame
@@ -42,7 +43,7 @@ public class Game : MonoBehaviour
             timeGameEnded = Time.time;
 		}
 
-        if (gameOver && Input.anyKeyDown && Time.time - timeGameEnded >= 2.0f)
+        if (gameOver && Input.anyKeyDown && (Time.time - timeGameEnded) >= 4.0f)
         {
             Application.LoadLevel(Application.loadedLevel);
         }
