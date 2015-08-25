@@ -55,7 +55,7 @@ public class EnragedAttackPattern : MonoBehaviour {
 	Vector3 GetTarget (int i) {
 		float angle = m_arcOffset + (i * m_arcStep);
 		float x = Mathf.Cos (angle);
-		float y = Mathf.Sin (angle);
+		float y = Mathf.Sin (angle) * m_bullet_y_direction;
 
 		// bottom of the screen
 		Vector2 target = Camera.main.ViewportToWorldPoint(new Vector2(x, y));

@@ -165,6 +165,8 @@ MonoBehaviour:
   shipExplosion: {fileID: 184816, guid: 1d58bf398f71c4e408f941a79f73d6a6, type: 2}
   m_Health: 4
   crashDamage: 0
+  chainExplosions: 1
+  m_Game: {fileID: 0}
 --- !u!114 &11453228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,6 +326,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_bullet_y_direction
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainExplosions
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

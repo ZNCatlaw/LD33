@@ -697,7 +697,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11474382, guid: e55f7846f8068c844bf357b2edaf8579, type: 2}
       propertyPath: creep
-      value: .00999999978
+      value: .00100000005
       objectReference: {fileID: 0}
     - target: {fileID: 6107338, guid: e55f7846f8068c844bf357b2edaf8579, type: 2}
       propertyPath: m_Offset.y
