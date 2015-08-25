@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 108868, guid: e534419089adb2941b8d6a311aadf649, type: 2}
+  kills: 0
 --- !u!4 &1051315374
 Transform:
   m_ObjectHideFlags: 0

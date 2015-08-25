@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
     public int kills = 0;
 
 	private bool gameOver = false;
+    private float timeGameEnded = 0.0f;
 
     // Use this for initialization
     void Start ()
@@ -37,6 +38,12 @@ public class Game : MonoBehaviour
 			GameObject.Find("Background").GetComponent<BackgroundManager>().paused = true;
             StartCoroutine(Utils.Sound.FadeAudio(GetComponents<AudioSource>()[0], 3.0f, Utils.Sound.Fade.Out, Interpolate.EaseType.EaseOutExpo));
             gameOver = true;
+            timeGameEnded = Time.time;
 		}
+
+        if (gameOver && Input.anyKeyDown && Time.time - timeGameEnded >= 2.0f)
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
 	}
 }
