@@ -8,6 +8,8 @@ public class Game : MonoBehaviour
     ShipManager m_shipManager;
 	Spawner m_spawner;
 	public GameObject gameOverScreen;
+
+    [HideInInspector]
     public int kills = 0;
 
 	private bool gameOver = false;
