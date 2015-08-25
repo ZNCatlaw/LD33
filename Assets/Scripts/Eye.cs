@@ -103,8 +103,8 @@ public class Eye : MonoBehaviour
         m_Laser.transform.localPosition = new Vector3(0, 0, -1.0f);
         m_Laser.name = "EyeLaser";
 
-		eyeClosed = this.transform.Find ("EyeClosed").gameObject;
-		colorLerp = this.GetComponent<ColorLerp> ();
+		eyeClosed = this.transform.Find("EyeClosed").gameObject;
+		colorLerp = this.GetComponent<ColorLerp>();
 
 		attackPattern = this.GetComponent<EnragedAttackPattern> ();
 		attackPattern.enabled = false;
@@ -120,22 +120,23 @@ public class Eye : MonoBehaviour
 			eyeClosed.GetComponent<SpriteRenderer>().enabled = true;
 		}
 
-		if (this.beast.isEnraged == true) {
-			this.attackPattern.enabled = true;
-		} else {
-			this.attackPattern.enabled = false;
-		}
+        this.attackPattern.enabled = this.beast.isEnraged;
 
         //Update the laser intensity
+        m_LaserIntensity = Mathf.Clamp(m_LaserIntensity - 4.0f * Time.deltaTime, 0, 1);
+
+        //Adjust the beam alpha based in the intensity
         GameObject beam = m_Laser.transform.GetChild(0).gameObject;
         GameObject blast = m_Laser.transform.GetChild(1).gameObject;
-        m_LaserIntensity = Mathf.Clamp(m_LaserIntensity - 4.0f * Time.deltaTime, 0, 1);
         Color color = new Color(1.0f, 1.0f, 1.0f, m_LaserIntensity);
         beam.GetComponent<SpriteRenderer>().color = color;
         blast.GetComponent<SpriteRenderer>().color = color;
 
+        //Enable the collider component if the laser is powered enough to do damage
+        beam.GetComponent<Collider2D>().enabled = (m_LaserIntensity > 0.9f);
+
         //Add a random force to mix things up
         float f = 1000.0f;
-        transform.GetComponent<Rigidbody2D>().AddForce( new Vector2(Random.Range( -f, f), Random.Range( -f, f)));
+        transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-f, f), Random.Range(-f, f)));
     }
 }

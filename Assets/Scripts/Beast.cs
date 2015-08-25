@@ -10,8 +10,6 @@ public class Beast : MonoBehaviour {
 
 	[HideInInspector] public bool isDead = false;
 	[HideInInspector] public bool isEnraged = false;
-    [HideInInspector] public int kills = 0;
-
 	
 	private float m_cosmicRage = 0;
 	private int damage = 0;
@@ -21,6 +19,7 @@ public class Beast : MonoBehaviour {
 	private Color hot = Color.red;
 	
 	private SpriteRenderer spriteRenderer;
+    private AudioSource beastRageSound;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +27,7 @@ public class Beast : MonoBehaviour {
 		currentPosition = startingPosition;
 
 		spriteRenderer = this.GetComponent<SpriteRenderer> ();
-
+        beastRageSound = GetComponent<AudioSource>();
 	}
 
 	void CreepForward () {
@@ -68,6 +67,7 @@ public class Beast : MonoBehaviour {
 		// reset the cosmic rage and DESTROY WORLDS
 		if (this.isEnraged == false && m_cosmicRage > m_maxCosmicRage) {
 			this.isEnraged = true;
+            beastRageSound.Play();
 		}
 
 		// stops raging

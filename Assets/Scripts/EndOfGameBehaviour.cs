@@ -18,7 +18,7 @@ public class EndOfGameBehaviour : MonoBehaviour {
     {
         finalScore = score;
         var uiText = transform.GetChild(0).GetChild(0).GetComponent<Text>();
-        uiText.text = "CASUALTIES:\n" + finalScore;
+        uiText.text = string.Format("CASUALTIES:\n {0}", finalScore);
         uiText.font.material.mainTexture.filterMode = FilterMode.Point;
     }
 	

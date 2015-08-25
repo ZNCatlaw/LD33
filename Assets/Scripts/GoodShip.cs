@@ -7,6 +7,7 @@ public class GoodShip : MonoBehaviour {
     public float m_Health;
 	public int crashDamage;
 	public bool chainExplosions;
+    public Game m_Game;
 
 	private float m_MaxHealth;
 	private Color hale = Color.white;
@@ -39,7 +40,8 @@ public class GoodShip : MonoBehaviour {
 			m_Health -= 10.0f * Time.deltaTime;
 
 			if (m_Health <= 0) {
-				Explode ();
+                m_Game.kills += 1;
+                Explode ();
 			}
 		} else if (other.name == "BeastLaser") {
 			Explode ();

@@ -7,7 +7,10 @@ public class Game : MonoBehaviour
     ProjectileManager m_projectileManager;
     ShipManager m_shipManager;
 	Spawner m_spawner;
-	public GameObject gameOverScreen; 
+	public GameObject gameOverScreen;
+
+    [HideInInspector]
+    public int kills = 0;
 
 	private bool gameOver = false;
 
@@ -28,7 +31,7 @@ public class Game : MonoBehaviour
 
 		if (gameOver == false && m_playerManager.playerDead == true) {
 			Instantiate(gameOverScreen);
-            gameOverScreen.GetComponent<EndOfGameBehaviour>().setFinalScore(m_playerManager.beast.kills);
+            gameOverScreen.GetComponent<EndOfGameBehaviour>().setFinalScore(kills);
 
 			m_spawner.enabled = false;
 			GameObject.Find("Background").GetComponent<BackgroundManager>().paused = true;
