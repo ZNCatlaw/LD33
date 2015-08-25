@@ -21,6 +21,7 @@ public class Spawner : MonoBehaviour
     private GameObject m_spawnedShips;
 	private ProjectileManager m_projectileManager;
     private PlayerManager m_playerManager;
+    private Game m_Game;
 
 	// Use this for initialization
 	public void Start()
@@ -29,7 +30,8 @@ public class Spawner : MonoBehaviour
 		m_spawnedShips = new GameObject (); 
 		m_spawnedShips.name = "SpawnedShips";
 
-        m_playerManager = GameObject.Find("Game").GetComponent<PlayerManager>();
+        m_playerManager = GetComponent<PlayerManager>();
+        m_Game = GetComponent<Game>();
     }
 
     public void Update()
@@ -86,6 +88,7 @@ public class Spawner : MonoBehaviour
 	void BuildShip (GameObject ship, Vector2 position) {
 		ship = Instantiate (ship, position, Quaternion.identity) as GameObject;
 		ship.transform.parent = m_spawnedShips.transform;
+        ship.GetComponent<GoodShip>().m_Game = m_Game;
 		ship.GetComponent<LinearAttackPattern>().m_projectileManager = m_projectileManager;
 		ship.gameObject.name = "ShipPuma";
 		DestroyObject (ship, 5f);

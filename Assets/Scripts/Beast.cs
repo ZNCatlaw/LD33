@@ -10,8 +10,6 @@ public class Beast : MonoBehaviour {
 
 	[HideInInspector] public bool isDead = false;
 	[HideInInspector] public bool isEnraged = false;
-    [HideInInspector] public int kills = 0;
-
 	
 	private float m_cosmicRage = 0;
 	private int damage = 0;
